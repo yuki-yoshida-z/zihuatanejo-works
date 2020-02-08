@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <global-header/>
+    <main-header/>
     <div class="main-content">
       <router-view/>
     </div>
@@ -20,12 +20,12 @@
 
 <script>
 import 'ress'
-import GlobalHeader from '@/components/GlobalHeader.vue'
+import MainHeader from '@/components/MainHeader.vue'
 
 export default {
   name: 'App',
   components: {
-    GlobalHeader
+    MainHeader
   }
 }
 </script>
