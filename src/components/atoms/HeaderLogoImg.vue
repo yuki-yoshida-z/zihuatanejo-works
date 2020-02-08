@@ -2,7 +2,7 @@
   <img src="@/assets/logo.svg">
 </template>
 
-<style lang="stylus">
+<style lang="sass" scoped>
 
 img
   display: block

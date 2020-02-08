@@ -7,7 +7,8 @@
   </div>
 </template>
 
-<style lang="stylus">
+<style lang="sass">
+
 #app
   font-family: '游ゴシック体', YuGothic, '游ゴシック', Yu Gothic, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, 'メイリオ', Meiryo, sans-serif
 

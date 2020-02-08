@@ -6,7 +6,7 @@
   </ul>
 </template>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .global-nav__list
   display: block
 
@@ -35,47 +35,47 @@
   a
     position: relative
     z-index: 2
-    color: #000
+    color: $text-black
     text-decoration: none
     transition: color .3s
 
   .theme-blue a:hover
-    color: #43bbde
+    color: $theme-blue
 
   .theme-red a:hover
-    color: #f41b30
+    color: $theme-red
 
   .theme-yellow a:hover
-    color: #facd00
+    color: $theme-yellow
 
   .theme-green a:hover
-    color: #3cbd80
+    color: $theme-green
 
   .theme-purple a:hover
-    color: #7f629a
+    color: $theme-purple
 
   .router-link-exact-active a:hover
     color: #fff
 
   .router-link-exact-active.theme-blue
     &:before
-      background-color: #43bbde
+      background-color: $theme-blue
 
   .router-link-exact-active.theme-red
     &:before
-      background-color: #f41b30
+      background-color: $theme-red
 
   .router-link-exact-active.theme-yellow
     &:before
-      background-color: #facd00
+      background-color: $theme-yellow
 
   .router-link-exact-active.theme-green
     &:before
-      background-color: #3cbd80
+      background-color: $theme-green
 
   .router-link-exact-active.theme-purple
     &:before
-      background-color: #7f629a
+      background-color: $theme-purple
 
 </style>
 
