@@ -37,45 +37,47 @@
     z-index: 2
     color: $text-black
     text-decoration: none
+    font-size: 1rem
+    font-weight: bold
     transition: color .3s
 
   .theme-blue a:hover
-    color: $theme-blue
+    color: $theme-color-top
 
   .theme-red a:hover
-    color: $theme-red
+    color: $theme-color-profile
 
   .theme-yellow a:hover
-    color: $theme-yellow
+    color: $theme-color-spec
 
   .theme-green a:hover
-    color: $theme-green
+    color: $theme-color-products
 
   .theme-purple a:hover
-    color: $theme-purple
+    color: $theme-color-contact
 
   .router-link-exact-active a:hover
     color: #fff
 
   .router-link-exact-active.theme-blue
     &:before
-      background-color: $theme-blue
+      background-color: $theme-color-top
 
   .router-link-exact-active.theme-red
     &:before
-      background-color: $theme-red
+      background-color: $theme-color-profile
 
   .router-link-exact-active.theme-yellow
     &:before
-      background-color: $theme-yellow
+      background-color: $theme-color-spec
 
   .router-link-exact-active.theme-green
     &:before
-      background-color: $theme-green
+      background-color: $theme-color-products
 
   .router-link-exact-active.theme-purple
     &:before
-      background-color: $theme-purple
+      background-color: $theme-color-contact
 
 </style>
 
