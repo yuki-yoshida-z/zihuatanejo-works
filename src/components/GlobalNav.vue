@@ -1,6 +1,6 @@
 <template>
   <ul class="global-nav__list">
-    <router-link v-for="page in pages" :key="page.id" tag="li" :to="{ path: page.href }" :class="page.themeColor">
+    <router-link v-for="page in pages" :key="page.id" tag="li" :to="{ path: page.href }" :class="convertstrclassname(page.name)">
       <a>{{ page.name }}</a>
     </router-link>
   </ul>
@@ -28,7 +28,6 @@
     &.router-link-exact-active
       &:before
         left: 0
-
       a
         color: #fff
 
@@ -41,41 +40,41 @@
     font-weight: bold
     transition: color .3s
 
-  .theme-blue a:hover
+  .is-top a:hover
     color: $theme-color-top
 
-  .theme-red a:hover
+  .is-profile a:hover
     color: $theme-color-profile
 
-  .theme-yellow a:hover
+  .is-spec a:hover
     color: $theme-color-spec
 
-  .theme-green a:hover
+  .is-products a:hover
     color: $theme-color-products
 
-  .theme-purple a:hover
+  .is-contact a:hover
     color: $theme-color-contact
 
   .router-link-exact-active a:hover
     color: #fff
 
-  .router-link-exact-active.theme-blue
+  .router-link-exact-active.is-top
     &:before
       background-color: $theme-color-top
 
-  .router-link-exact-active.theme-red
+  .router-link-exact-active.is-profile
     &:before
       background-color: $theme-color-profile
 
-  .router-link-exact-active.theme-yellow
+  .router-link-exact-active.is-spec
     &:before
       background-color: $theme-color-spec
 
-  .router-link-exact-active.theme-green
+  .router-link-exact-active.is-favorite-products
     &:before
       background-color: $theme-color-products
 
-  .router-link-exact-active.theme-purple
+  .router-link-exact-active.is-contact
     &:before
       background-color: $theme-color-contact
 
@@ -86,12 +85,17 @@ export default {
   data () {
     return {
       pages: [
-        { id: 1, name: 'Top', href: '/', themeColor: 'theme-blue'  },
-        { id: 2, name: 'Profile', href: '/profile', themeColor: 'theme-red'  },
-        { id: 3, name: 'Spec', href: '/spec', themeColor: 'theme-yellow'  },
-        { id: 4, name: 'Favorite Products', href: 'products', themeColor: 'theme-green'  },
-        { id: 5, name: 'Contact', href: 'contact', themeColor: 'theme-purple'  }
+        { id: 1, name: 'Top', href: '/' },
+        { id: 2, name: 'Profile', href: 'profile' },
+        { id: 3, name: 'Spec', href: 'spec' },
+        { id: 4, name: 'Favorite Products', href: 'products' },
+        { id: 5, name: 'Contact', href: 'contact' }
       ],
+    }
+  },
+  methods: {
+    convertstrclassname(str){
+      return 'is-' + str.split(' ').map(s => s.toLowerCase()).join('-')
     }
   }
 }

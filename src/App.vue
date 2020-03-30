@@ -5,7 +5,6 @@
       <div class="main-content">
         <page-curtain/>
         <router-view/>
-        <helf-hexagon/>
       </div>
     </div>
   </div>
@@ -21,19 +20,6 @@
   min-height: 100vh
   padding-left: 200px
   overflow: hidden
-
-.lines
-  display: flex
-  height: 100vh
-  top: 0
-  position: fixed
-  right: 0
-  width: 120px
-
-.line
-  position: relative
-  display: block
-  width: 24px
 
 </style>
 
