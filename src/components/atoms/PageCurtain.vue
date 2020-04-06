@@ -1,6 +1,40 @@
 <template>
-  <div class="page-curtain" :class="this.openStatus"></div>
+  <transition name="curtain-toggle">
+    <div v-show="curtainShow" class="page-curtain" :class="this.curtainColorClass"></div>
+  </transition>
 </template>
+
+<script>
+
+export default {
+  name: "curtain",
+  data(){
+    return {
+      curtainShow: true,
+      curtainColorClass: 'is-top'
+    }
+  },
+  mounted(){
+    setTimeout( () => {
+      this.curtainShow = false
+    }, 300),
+    this.$router.beforeEach((to, from, next) => {
+      this.curtainColorClass = "is-" + to.name;
+      this.curtainShow = true
+      setTimeout( () => {
+        next()
+      }, 500);
+    }),
+    this.$router.afterEach((to) => {
+      this.curtainColorClass = "is-" + to.name;
+      setTimeout( () => {
+        this.curtainShow = false
+      }, 100);
+    })
+  }
+};
+
+</script>
 
 <style lang="sass" scoped>
 
@@ -11,65 +45,32 @@
   position: fixed
   top: 0
   bottom: 0
-  transition: width .4s
+  z-index: 2
 
-  &.is-open
-    width: 0
-    right: 0
-
-  &.is-close
-    width: 100%
-    left: 0
-
-  .scene-top &
+  &.is-top
     background-color: $theme-color-top
 
-  .scene-profile &
+  &.is-profile
     background-color: $theme-color-profile
 
-  .scene-spec &
+  &.is-spec
     background-color: $theme-color-spec
 
-  .scene-products &
+  &.is-products
     background-color: $theme-color-products
 
-  .scene-contact &
+  &.is-contact
     background-color: $theme-color-contact
 
-</style>
+.curtain-toggle-enter-active, .curtain-toggle-leave-active
+  transition: width .5s;
+  width: 100%
 
-<script>
-export default {
-  name: "curtain",
-  data () {
-    return {
-      openStatus: 'is-open',
-      isOpen: true
-    }
-  },
-  watch: {
-    'isOpen': function () {
-      this.isOpen ? this.open() : this.close();
-    }
-  },
-  mounted () {
-    this.$router.beforeEach((to, from, next) => {
-      this.isOpen = false;
-      next();
-    })
-    this.$router.afterEach(() => {
-      setTimeout( () => {
-        this.isOpen = true;
-      }, 800);
-    })
-  },
-  methods: {
-    close: function () {
-      this.openStatus = 'is-close';
-    },
-    open: function () {
-      this.openStatus = 'is-open';
-    }
-  }
-};
-</script>
+.curtain-toggle-enter
+  width: 0
+
+.curtain-toggle-leave-to
+  width: 0
+  right: 0
+
+</style>

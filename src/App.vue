@@ -32,7 +32,7 @@ export default {
   name: 'App',
   components: {
     MainHeader,
-    PageCurtain,
+    PageCurtain
   },
   data(){
     return{
