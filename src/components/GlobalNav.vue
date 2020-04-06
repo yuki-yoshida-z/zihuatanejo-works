@@ -6,80 +6,6 @@
   </ul>
 </template>
 
-<style lang="sass" scoped>
-.global-nav__list
-  display: block
-
-  li
-    position: relative
-    display: block
-    width: 100%
-    padding: 12px 24px
-    &:before
-      content: ""
-      position: absolute
-      top: 0
-      left: -200px
-      display: block
-      width: 100%
-      height: 100%
-      transition: left .3s
-
-    &.router-link-exact-active
-      &:before
-        left: 0
-      a
-        color: #fff
-
-  a
-    position: relative
-    z-index: 2
-    color: $text-black
-    text-decoration: none
-    font-size: 1rem
-    font-weight: bold
-    transition: color .3s
-
-  .is-top a:hover
-    color: $theme-color-top
-
-  .is-profile a:hover
-    color: $theme-color-profile
-
-  .is-spec a:hover
-    color: $theme-color-spec
-
-  .is-products a:hover
-    color: $theme-color-products
-
-  .is-contact a:hover
-    color: $theme-color-contact
-
-  .router-link-exact-active a:hover
-    color: #fff
-
-  .router-link-exact-active.is-top
-    &:before
-      background-color: $theme-color-top
-
-  .router-link-exact-active.is-profile
-    &:before
-      background-color: $theme-color-profile
-
-  .router-link-exact-active.is-spec
-    &:before
-      background-color: $theme-color-spec
-
-  .router-link-exact-active.is-favorite-products
-    &:before
-      background-color: $theme-color-products
-
-  .router-link-exact-active.is-contact
-    &:before
-      background-color: $theme-color-contact
-
-</style>
-
 <script>
 export default {
   data () {
@@ -100,3 +26,86 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+
+.global-nav__list
+  display: block
+  overflow: hidden
+
+li
+  position: relative
+  display: block
+  width: 100%
+
+li.is-top
+  a:hover:before
+    background-color: $theme-color-top
+
+li.is-profile
+  a:hover:before
+    background-color: $theme-color-profile
+
+li.is-spec
+  a:hover:before
+    background-color: $theme-color-spec
+
+li.is-favorite-products
+  a:hover:before
+    background-color: $theme-color-products
+
+li.is-contact
+  a:hover:before
+    background-color: $theme-color-contact
+
+a
+  position: relative
+  display: block
+  padding: 12px 24px
+  font-size: 1rem
+  font-weight: bold
+  color: $text-black
+  text-decoration: none
+  transition: color .3s
+
+  &:hover
+    color: #fff
+    &:before
+      left: 0
+
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    left: -200px
+    display: block
+    width: 100%
+    height: 100%
+    z-index: -1
+    transition: left .3s
+
+.router-link-exact-active
+  a:before
+    left: 200px
+
+  &.is-top
+    a
+      color: $theme-color-top
+
+  &.is-profile
+    a
+      color: $theme-color-profile
+
+  &.is-spec
+    a
+      color: $theme-color-spec
+
+  &.is-favorite-products
+    a
+      color: $theme-color-products
+
+  &.is-contact
+    a
+      color: $theme-color-contact
+
+</style>
