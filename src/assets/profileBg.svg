@@ -1,0 +1,11 @@
+<svg id="レイヤー_1" data-name="レイヤー 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.60254 300">
+  <defs>
+    <style>.cls-1{fill:#fff;}.cls-2{fill: #f76e60;}</style>
+  </defs>
+  <path class="cls-1" d="M228.5,309.5" transform="translate(-141.89746 -9.5)"/>
+  <polyline class="cls-2" points="86.603 150 0 300 86.603 300"/>
+  <path class="cls-1" d="M228.5,159.5" transform="translate(-141.89746 -9.5)"/>
+  <path class="cls-1" d="M228.5,159.5" transform="translate(-141.89746 -9.5)"/>
+  <polyline class="cls-2" points="86.603 0 0 0 86.603 150"/>
+  <path class="cls-1" d="M228.5,9.5" transform="translate(-141.89746 -9.5)"/>
+</svg>
