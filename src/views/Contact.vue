@@ -1,13 +1,16 @@
 <template>
   <div class="contact">
-    <h1>This is an contact page</h1>
+    <page-heading heading-en="CONTACT" heading-ja="お問い合わせ" />
   </div>
 </template>
 
 <script>
-// import *** from '***'
+import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
-  name: 'contact'
+  name: 'contact',
+  components: {
+    PageHeading
+  }
 }
 </script>

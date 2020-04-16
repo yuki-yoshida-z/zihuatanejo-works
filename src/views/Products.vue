@@ -1,13 +1,16 @@
 <template>
   <div class="products">
-    <h1>This is an products page</h1>
+    <page-heading heading-en="FAVORITE PRODUCTS" heading-ja="お気に入りプロダクト" />
   </div>
 </template>
 
 <script>
-// import *** from '***'
+import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
-  name: 'products'
+  name: 'products',
+  components: {
+    PageHeading
+  }
 }
 </script>

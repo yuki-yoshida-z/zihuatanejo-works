@@ -1,13 +1,16 @@
 <template>
   <div class="spec">
-    <h1>This is an spec page</h1>
+    <page-heading heading-en="SPEC" heading-ja="仕様" />
   </div>
 </template>
 
 <script>
-// import *** from '***'
+import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
-  name: 'spec'
+  name: 'spec',
+  components: {
+    PageHeading
+  }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="top">
     <h1 class="msg">
-      <transition name="first-line" enter-active-class="animated fadeIn delay-1s">
+      <transition name="first-line" enter-active-class="animated fadeIn firstLine">
         <span v-html="firstLineSentence" class="first-sentence" v-show="lineAnimation"></span>
       </transition>
       <transition name="second-line" enter-active-class="animated fadeInRight secondLine" v-on:after-enter="dynamicWordAnimationStart">
@@ -113,8 +113,11 @@ export default {
   color: #fff
   letter-spacing: 0.2vw
 
+.firstLine
+  animation-delay: .2s
+
 .secondLine
-  animation-delay: 1.5s
+  animation-delay: 1s
 
 .third-line
   display: block

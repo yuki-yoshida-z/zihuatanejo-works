@@ -1,13 +1,16 @@
 <template>
   <div class="profile">
-    <h1>This is an profile page</h1>
+    <page-heading heading-en="PROFILE" heading-ja="プロフィール" />
   </div>
 </template>
 
 <script>
-// import *** from '***'
+import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
-  name: 'profile'
+  name: 'profile',
+  components: {
+    PageHeading
+  }
 }
 </script>
