@@ -15,3 +15,12 @@ $text-black: #333
 
 // border-color
 $main-border-color: #eee
+
+//mixin
+=text-link($color: $text-black, $hover-color: $text-black)
+  color: $color
+  text-decoration: none
+  transition: opacity .3s, color .3s
+  &:hover
+    opacity: .5
+    color: $hover-color
