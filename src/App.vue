@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import 'ress'
 import MainHeader from '@/components/MainHeader.vue'
 import PageCurtain from '@/components/atoms/PageCurtain.vue'
 

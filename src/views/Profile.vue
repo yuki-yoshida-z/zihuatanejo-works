@@ -30,13 +30,13 @@
           <li class="profile-body__list-item">
             <span class="profile-body__list-title">GitHub</span>
             <span class="profile-body__list-text">
-              <a class="profile-body__list-link" :href="profile.github.url" target="_blank">{{ profile.github.name }}</a>
+              <a class="profile-body__list-link" :href="profile.github.url" target="_blank">{{ profile.github.name }}<v-icon>mdi-open-in-new</v-icon></a>
             </span>
           </li>
           <li class="profile-body__list-item">
             <span class="profile-body__list-title">ブログ</span>
             <span class="profile-body__list-text">
-              <a class="profile-body__list-link" :href="profile.blog.url" target="_blank">{{ profile.blog.name }}</a>
+              <a class="profile-body__list-link" :href="profile.blog.url" target="_blank">{{ profile.blog.name }}<v-icon>mdi-open-in-new</v-icon></a>
             </span>
           </li>
         </ul>
@@ -118,6 +118,13 @@ export default {
 
   &__list-link
     +text-link($hover-color: $theme-color-profile)
-    text-decoration: underline
+    &:hover
+      .v-icon
+        color: $theme-color-profile
+
+    .v-icon
+      margin-left: 4px
+      font-size: .9rem
+      color: $text-black
 
 </style>

@@ -63,7 +63,7 @@ export default {
     background-color: $theme-color-contact
 
 .curtain-toggle-enter-active, .curtain-toggle-leave-active
-  transition: width .5s;
+  transition: width .5s
   width: 100%
 
 .curtain-toggle-enter
