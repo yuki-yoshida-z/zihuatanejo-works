@@ -146,7 +146,7 @@ export default {
   &__text
     padding: .4rem 1rem
     white-space: pre-line
-    word-wrap:break-word
+    word-wrap: break-word
     font-size: 1.2rem
     line-height: 1.6
 

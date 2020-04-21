@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import 'ress'
 import vuetify from './plugins/vuetify';
+import 'ress'
+import 'animate.css'
 
 Vue.config.productionTip = false
 

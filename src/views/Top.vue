@@ -24,7 +24,6 @@
 
 <script>
 
-import 'animate.css'
 
 export default {
   name: 'top',
