@@ -18,7 +18,7 @@ export default {
 <style lang="sass" scoped>
 .page-heading
   display: block
-  padding: 100px 7%
+  padding: 100px 7% 48px
 
   &__en
     display: block
