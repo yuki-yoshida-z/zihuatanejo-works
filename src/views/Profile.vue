@@ -1,45 +1,43 @@
 <template>
   <div class="profile">
     <page-heading heading-en="PROFILE" heading-ja="プロフィール" />
-    <div class="test">
-      <div class="profile-content">
-        <div class="profile-header">
-          <img src="@/assets/profile.jpg" class="profile-header__img">
-        </div>
-        <div class="profile-body">
-          <ul class="profile-body__list">
-            <li class="profile-body__list-item">
-              <span class="profile-body__list-title">ハンドルネーム</span>
-              <span class="profile-body__list-text">{{ profile.name }}</span>
-            </li>
-            <li class="profile-body__list-item">
-              <span class="profile-body__list-title">職業</span>
-              <span class="profile-body__list-text">{{ profile.job }}</span>
-            </li>
-            <li class="profile-body__list-item">
-              <span class="profile-body__list-title">年齢</span>
-              <span class="profile-body__list-text">{{ calcAgeFromBirthday(profile.birthday) }}歳</span>
-            </li>
-            <li class="profile-body__list-item">
-              <span class="profile-body__list-title">活動地域</span>
-              <span class="profile-body__list-text">{{ profile.area }}</span>
-            </li>
-            <li class="profile-body__list-item">
-              <span class="profile-body__list-title">趣味</span>
-              <span class="profile-body__list-text">{{ profile.hobby.join("、") }}</span>
-            </li>
-            <li class="profile-body__list-item">
-              <span class="profile-body__list-title">GitHub</span>
-              <span class="profile-body__list-text">
-                <a class="profile-body__list-link" :href="profile.github.url" target="_blank">{{ profile.github.name }}<v-icon>mdi-open-in-new</v-icon></a>
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div class="profile-footer">
-          <p class="profile-footer__title">経歴</p>
-          <p class="profile-footer__text">{{ profile.introduction }}</p>
-        </div>
+    <div class="profile-content">
+      <div class="profile-header">
+        <img src="@/assets/profile.jpg" class="profile-header__img">
+      </div>
+      <div class="profile-body">
+        <ul class="profile-body__list">
+          <li class="profile-body__list-item">
+            <span class="profile-body__list-title">ハンドルネーム</span>
+            <span class="profile-body__list-text">{{ profile.name }}</span>
+          </li>
+          <li class="profile-body__list-item">
+            <span class="profile-body__list-title">職業</span>
+            <span class="profile-body__list-text">{{ profile.job }}</span>
+          </li>
+          <li class="profile-body__list-item">
+            <span class="profile-body__list-title">年齢</span>
+            <span class="profile-body__list-text">{{ calcAgeFromBirthday(profile.birthday) }}歳</span>
+          </li>
+          <li class="profile-body__list-item">
+            <span class="profile-body__list-title">活動地域</span>
+            <span class="profile-body__list-text">{{ profile.area }}</span>
+          </li>
+          <li class="profile-body__list-item">
+            <span class="profile-body__list-title">趣味</span>
+            <span class="profile-body__list-text">{{ profile.hobby.join("、") }}</span>
+          </li>
+          <li class="profile-body__list-item">
+            <span class="profile-body__list-title">GitHub</span>
+            <span class="profile-body__list-text">
+              <a class="profile-body__list-link" :href="profile.github.url" target="_blank">{{ profile.github.name }}<v-icon>mdi-open-in-new</v-icon></a>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="profile-footer">
+        <p class="profile-footer__title">経歴</p>
+        <p class="profile-footer__text">{{ profile.introduction }}</p>
       </div>
     </div>
   </div>
