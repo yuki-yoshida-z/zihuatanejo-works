@@ -25,7 +25,7 @@
           </li>
           <li class="profile-body__list-item">
             <span class="profile-body__list-title">趣味</span>
-            <span class="profile-body__list-text">{{ profile.hobby.join("、") }}</span>
+            <span class="profile-body__list-text">{{ joinArray(profile.hobby) }}</span>
           </li>
           <li class="profile-body__list-item">
             <span class="profile-body__list-title">GitHub</span>
@@ -37,13 +37,14 @@
       </div>
       <div class="profile-footer">
         <p class="profile-footer__title">経歴</p>
-        <p class="profile-footer__text">{{ profile.introduction }}</p>
+        <p class="profile-footer__text">{{ convertNewLine(profile.introduction) }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import firebase from 'firebase/app'
 import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
@@ -54,29 +55,45 @@ export default {
   data(){
     return {
       profile: {
-        name: "Zihuatanejo（ジワタネホ）",
-        job: "ウェブエンジニア",
-        birthday: new Date("1985/4/9"),
-        area: "都内近郊",
-        hobby: ["海外サッカー情報収集", "映画鑑賞", "海外ドラマ鑑賞"],
-        github: {name: 'yuki-yoshida-z', url: "https://github.com/yuki-yoshida-z"},
-        introduction: `高校時代に自分達のバンドのホームページを作ることからウェブ制作を始る。
-                       24歳で地元の友人と起業。
-                       取締役として約4年間、代表取締役として約3年間営業代行業やイベント事業などを行う。
-                       2016年代表取締役を辞任し、心機一転フリーランスウェブエンジニアとして独立。
-                      `
+        name: '',
+        job: '',
+        birthday: '',
+        area: '',
+        hobby: [],
+        github: {url: '', name: ''},
+        introduction: ''
       }
     }
+  },
+  created(){
+    firebase.firestore().collection('profiles').get().then(snapshot => {
+      snapshot.forEach(doc => {
+        this.profile = doc.data()
+      })
+    })
   },
   computed: {
     calcAgeFromBirthday(){
       return (birthday) => {
-        const today = new Date();
-        let age = today.getFullYear() - birthday.getFullYear()
-        if(today.getMonth() < birthday.getMonth() && today.getDate() > birthday.getDate()){
-          age--;
+        if(birthday){
+          const today = new Date();
+          const birthdayToDate = birthday.toDate()
+          let age = today.getFullYear() - birthdayToDate.getFullYear()
+          if(today.getMonth() < birthdayToDate.getMonth() && today.getDate() > birthdayToDate.getDate()){
+            age--;
+          }
+          return age
         }
-        return age
+      }
+    },
+    joinArray(){
+      return (arry) =>{
+        return arry.join('、')
+      }
+    },
+    convertNewLine(){
+      return (text) =>{
+        return text.replace(/\\n/g, '\n')
       }
     }
   }

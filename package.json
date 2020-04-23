@@ -12,6 +12,7 @@
     "animate.css": "^3.7.2",
     "axios": "^0.19.2",
     "core-js": "^3.4.4",
+    "firebase": "^7.14.1",
     "node-sass": "^4.13.1",
     "ress": "^2.0.4",
     "sass-loader": "^8.0.2",
