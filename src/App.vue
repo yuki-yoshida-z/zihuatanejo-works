@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <div :class="this.sceneClass">
-      <main-header/>
-      <div class="main-content" :class="bgStyle">
-        <page-curtain/>
-        <router-view/>
+    <v-app style="height: 0; margin: 0; padding: 0;">
+      <div :class="this.sceneClass">
+        <main-header/>
+        <div class="main-content" :class="bgStyle">
+          <page-curtain/>
+          <router-view/>
+        </div>
       </div>
-    </div>
+    </v-app>
   </div>
 </template>
 

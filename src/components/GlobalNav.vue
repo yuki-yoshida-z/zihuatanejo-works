@@ -1,7 +1,7 @@
 <template>
   <ul class="global-nav__list">
     <router-link v-for="page in pages" :key="page.id" tag="li" :to="{ path: page.href }" :class="convertstrclassname(page.name)">
-      <a>{{ page.name }}</a>
+      <a class="global-nav__link">{{ page.name }}</a>
     </router-link>
   </ul>
 </template>
@@ -32,6 +32,7 @@ export default {
 .global-nav__list
   display: block
   overflow: hidden
+  padding: 0
 
 li
   position: relative
@@ -58,7 +59,7 @@ li.is-contact
   a:hover:before
     background-color: $theme-color-contact
 
-a
+.global-nav__link
   position: relative
   display: block
   padding: 12px 24px
