@@ -15,28 +15,26 @@
       </div>
       <div class="spec-body">
         <h2 class="spec-body__title">使用技術・ツール</h2>
-        <div class="spec-body__table-block">
-          <div class="spec-body__input-block">
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              hide-details
-              color="#f9b20f"
-            ></v-text-field>
-          </div>
-          <v-data-table
-            :headers="skillHeaders"
-            :items="skillList"
-            :search="search"
-            :page.sync="page"
-            :items-per-page="itemsPerPage"
-            @page-count="pageCount = $event"
-            hide-default-footer
-          ></v-data-table>
-          <div class="text-center pt-2 pb-10">
-            <v-pagination v-model="page" color="#f9b20f" :length="pageCount"></v-pagination>
-          </div>
+        <div class="spec-body__input-block">
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            hide-details
+            color="#f9b20f"
+          ></v-text-field>
+        </div>
+        <v-data-table
+          :headers="skillHeaders"
+          :items="skillList"
+          :search="search"
+          :page.sync="page"
+          :items-per-page="itemsPerPage"
+          @page-count="pageCount = $event"
+          hide-default-footer
+        ></v-data-table>
+        <div class="text-center pt-2 pb-10">
+          <v-pagination v-model="page" color="#f9b20f" :length="pageCount"></v-pagination>
         </div>
       </div>
     </div>
@@ -177,9 +175,6 @@ export default {
   &__list-title
     margin-bottom: 24px
 
-  &__table-block
-    margin-top: 40px
-
   &__input-block
     width: 40%
     margin-left: auto
@@ -190,5 +185,8 @@ export default {
 
     tbody tr:hover
       background-color: rgba(238, 238, 238, 0.4)
+
+  :focus
+    outline: none
 
 </style>

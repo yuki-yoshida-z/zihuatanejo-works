@@ -2,16 +2,38 @@
   <div class="products">
     <page-heading heading-en="FAVORITE PRODUCTS" heading-ja="お気に入りプロダクト" />
     <div class="products-content">
-      <ul class="products__list">
-        <v-card tag="li" class="products__list-item" v-for="product of products" :key="product.id" max-width="320px" :hover=true :href="product.url" target="blank">
-          <v-img :alt="product.name" class="white--text align-end products__list-img" max-width="320px" height="168px" :src="product.image_path" contain />
+      <transition-group
+        class="products__list list"
+        tag="ul"
+        enter-active-class="animated fadeInUp"
+        @before-enter="transitionBeforeEnter"
+      >
+        <v-card
+          tag="li"
+          v-for="(product, index) in products"
+          :key="product.order"
+          :data-index="index"
+          :hover=true
+          :href="product.url"
+          class="products__list-item"
+          target="blank"
+          max-width="320px"
+        >
+          <v-img
+            :alt="product.name"
+            :src="product.image_path"
+            class="white--text align-end products__list-img"
+            height="168px"
+            max-width="320px"
+            contain
+          />
           <v-card-title class="products__list-title">{{ product.name }}</v-card-title>
           <v-card-subtitle class="pb-0">{{ product.company }}</v-card-subtitle>
           <v-card-text class="text--primary">
             <div>{{ product.description }}</div>
           </v-card-text>
         </v-card>
-      </ul>
+      </transition-group>
     </div>
 
   </div>
@@ -35,6 +57,11 @@ export default {
     firebase.firestore().collection('products').orderBy('order').get().then(snapshot => {
       this.products = snapshot.docs.map(doc => doc.data())
     })
+  },
+  methods: {
+    transitionBeforeEnter(el) {
+      el.style.animationDelay = Number(el.dataset.index) / 10 + 's'
+    }
   }
 }
 </script>
