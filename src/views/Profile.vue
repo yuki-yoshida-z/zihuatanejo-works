@@ -84,11 +84,11 @@ export default {
     calcAgeFromBirthday(){
       return (birthday) => {
         if(birthday){
-          const today = new Date();
+          const today = new Date()
           const birthdayToDate = birthday.toDate()
           let age = today.getFullYear() - birthdayToDate.getFullYear()
           if(today.getMonth() < birthdayToDate.getMonth() && today.getDate() > birthdayToDate.getDate()){
-            age--;
+            age--
           }
           return age
         }

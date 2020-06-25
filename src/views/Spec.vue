@@ -15,17 +15,32 @@
       </div>
       <div class="spec-body">
         <h2 class="spec-body__title">使用技術・ツール</h2>
-        <ul class="spec-body__list">
-          <li class="spec-body__list-item" v-for="(v, k) in skills" :key="k">
-            <h3 class="spec-body__list-title">{{ v.title }}</h3>
-            <v-expansion-panels hover>
-              <v-expansion-panel v-for="skill of v.content" :key="skill.name">
-                <v-expansion-panel-header>{{ skill.name}}</v-expansion-panel-header>
-                <v-expansion-panel-content>{{ skill.items.join('、') }}</v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-expansion-panels>
-          </li>
-        </ul>
+        <div class="spec-body__table-block">
+          <v-card outlined>
+            <v-card-title>
+              <div class="spec-body__input-block">
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Search"
+                  hide-details
+                ></v-text-field>
+              </div>
+            </v-card-title>
+            <v-data-table
+              :headers="skillHeaders"
+              :items="skillList"
+              :search="search"
+              :page.sync="page"
+              :items-per-page="itemsPerPage"
+              @page-count="pageCount = $event"
+              hide-default-footer
+            ></v-data-table>
+            <div class="text-center pt-2 pb-10">
+              <v-pagination v-model="page" :length="pageCount"></v-pagination>
+            </div>
+          </v-card>
+        </div>
       </div>
     </div>
   </div>
@@ -70,7 +85,13 @@ export default {
       programmingChartData: {},
       directionChartTitle: 'ディレクション',
       directionChartData: {},
-      skills: {}
+      page: 1,
+      pageCount: 0,
+      itemsPerPage: 10,
+      search: '',
+      skillHeaders: [],
+      skillList: [],
+      skillLevelStrings: ['初学者', 'ドキュメントを確認しながら対応できる', '基本的なことは対応できる', '一通りのことは対応できる', '人に教えられる']
     }
   },
   created(){
@@ -78,8 +99,33 @@ export default {
       const pageProperty = snapshot.docs.map(doc => doc.data())
       this.programmingChartData = pageProperty[0].chart.programming.data
       this.directionChartData = pageProperty[0].chart.direction.data
-      this.skills = pageProperty[0].skills
+      this.skillHeaders = pageProperty[0].skills.headers
+      pageProperty[0].skills.skillList.forEach(skill => {
+        skill.experience = this.calcPeriodFromSkillStartUsingForWorkAt(skill.started_using_for_work_at)
+        skill.level = this.convertSkillLevelToStrings(skill.level)
+      })
+      this.skillList = pageProperty[0].skills.skillList
     })
+  },
+  computed: {
+    calcPeriodFromSkillStartUsingForWorkAt(){
+      return (skillStartUsingForWorkAt) => {
+        const today = new Date()
+        const startAtToDate = skillStartUsingForWorkAt.toDate()
+        let periodYear = today.getFullYear() - startAtToDate.getFullYear()
+        let periodMonth = today.getMonth() - startAtToDate.getMonth()
+        if(periodMonth < 0){
+          periodYear -= 1
+          periodMonth = -periodMonth
+        }
+        return String(periodYear) + '年' + String(periodMonth) + 'ヶ月'
+      }
+    },
+    convertSkillLevelToStrings(){
+      return (level) => {
+        return this.skillLevelStrings[level - 1]
+      }
+    }
   }
 }
 </script>
@@ -88,8 +134,6 @@ export default {
 
 .spec
   min-height: 1300px
-
-.spec-content
 
 .spec-header
   width: 93%
@@ -110,9 +154,10 @@ export default {
     min-width: 360px
 
 .spec-body
-  width: 100%
+  width: 93%
   min-width: 824px
   max-width: 1200px
+  min-height: 960px
   margin-top: 48px
   padding: 0 0 120px 7%
 
@@ -123,7 +168,7 @@ export default {
     display: flex
     margin-top: 40px
     padding: 0
-    justify-content: space-between
+    justify-content: space-around
 
   &__list-item
     list-style: none
@@ -131,5 +176,11 @@ export default {
 
   &__list-title
     margin-bottom: 24px
+
+  &__table-block
+    margin-top: 40px
+
+  &__input-block
+    width: 30%
 
 </style>
