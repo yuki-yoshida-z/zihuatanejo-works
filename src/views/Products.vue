@@ -74,7 +74,6 @@ export default {
   background-position: right
   background-size: contain
 
-
 .products-content
   margin-top: 24px
   padding: 0 0 0 7%

@@ -6,10 +6,20 @@
         <h2 class="spec-header__title">自己評価チャート</h2>
         <div class="spec-header__chart-block">
           <div class="spec-header__chart">
-            <radar-chart :chart-title="programmingChartTitle" :chart-labels="chartLabels" :chart-data="programmingChartData" :options="chartOptions" />
+            <radar-chart
+              :chart-title="programmingChartTitle"
+              :chart-labels="chartLabels"
+              :chart-data="programmingChartData"
+              :options="chartOptions"
+            />
           </div>
           <div class="spec-header__chart">
-            <radar-chart :chart-title="directionChartTitle" :chart-labels="chartLabels" :chart-data="directionChartData" :options="chartOptions" />
+            <radar-chart
+              :chart-title="directionChartTitle"
+              :chart-labels="chartLabels"
+              :chart-data="directionChartData"
+              :options="chartOptions"
+            />
           </div>
         </div>
       </div>
