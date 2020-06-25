@@ -14,6 +14,11 @@ export default {
       curtainColorClass: ''
     }
   },
+  created(){
+    if(this.$route.name === 'top'){
+      this.curtainColorClass = 'is-top'
+    }
+  },
   mounted(){
     setTimeout( () => {
       this.curtainShow = false
