@@ -51,28 +51,5 @@ export default {
   padding-left: 200px
   overflow: hidden
   background-color: #fff
-  background-position: right
-  background-size: contain
-
-  .scene-top &
-    background-color: $theme-color-top
-
-  &.is-hourGlass
-    background-image: url("./assets/hourGlass.svg")
-
-  &.is-aboutHalfHourGlass
-    background-image: url("./assets/aboutBg.svg")
-
-  &.is-profileHalfHourGlass
-    background-image: url("./assets/profileBg.svg")
-
-  &.is-specHalfHourGlass
-    background-image: url("./assets/specBg.svg")
-
-  &.is-productsHalfHourGlass
-    background-image: url("./assets/productsBg.svg")
-
-  &.is-contactHalfHourGlass
-    background-image: url("./assets/contactBg.svg")
 
 </style>

@@ -42,11 +42,23 @@ export default {
 <style lang="sass" scoped>
 
 .products
+  min-height: 100vh
+  background-image: url("../assets/productsBg.svg")
+  background-position: right
+  background-size: contain
+
+
+.products-content
+  margin-top: 24px
+  padding: 0 0 0 7%
+
+.products
   padding-bottom: 120px
 
   &__list
     display: flex
     flex-wrap: wrap
+    padding: 0
 
   &__list-item
     list-style: none

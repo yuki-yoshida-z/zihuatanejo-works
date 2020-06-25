@@ -14,3 +14,13 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+
+.contact
+  min-height: 100vh
+  background-image: url("../assets/contactBg.svg")
+  background-position: right
+  background-size: contain
+
+</style>

@@ -11,7 +11,7 @@ export default {
   data(){
     return {
       curtainShow: true,
-      curtainColorClass: 'is-top'
+      curtainColorClass: ''
     }
   },
   mounted(){
@@ -19,20 +19,20 @@ export default {
       this.curtainShow = false
     }, 300),
     this.$router.beforeEach((to, from, next) => {
-      this.curtainColorClass = "is-" + to.name;
+      this.curtainColorClass = "is-" + to.name
       this.curtainShow = true
       setTimeout( () => {
         next()
-      }, 500);
+      }, 500)
     }),
     this.$router.afterEach((to) => {
-      this.curtainColorClass = "is-" + to.name;
+      this.curtainColorClass = "is-" + to.name
       setTimeout( () => {
         this.curtainShow = false
-      }, 100);
+      }, 100)
     })
   }
-};
+}
 
 </script>
 

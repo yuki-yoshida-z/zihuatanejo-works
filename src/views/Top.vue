@@ -41,7 +41,7 @@ export default {
     }
   },
   mounted(){
-    this.lineAnimation = true;
+    this.lineAnimation = true
     window.addEventListener('animationend', this.changeDynamicWord, false)
   },
   destroyed(){
@@ -70,23 +70,23 @@ export default {
   },
   methods: {
     dynamicWordAnimationStart(){
-      this.dynamicWordAnimation = true;
+      this.dynamicWordAnimation = true
     },
     changeDynamicWord(e){
       if(e.target.classList.contains('isLastLetter')){
         if(e.animationName === 'flipInX'){
           setTimeout( () => {
-            this.flipOut = true;
-          }, 2000);
+            this.flipOut = true
+          }, 2000)
         }else{
           setTimeout( () => {
-            this.flipOut = false;
+            this.flipOut = false
             if(this.selectedWordsNum === this.dynamicWords.length - 1){
               this.selectedWordsNum = 0
             }else{
               this.selectedWordsNum += 1
             }
-          }, 1000);
+          }, 1000)
         }
       }
     }
@@ -104,6 +104,10 @@ export default {
   text-align: left
   font-family: Montserrat,Avenir Next,Century Gothic,游ゴシック体,YuGothic,游ゴシック,Yu Gothic,ヒラギノ角ゴ ProN W3,Hiragino Kaku Gothic ProN,メイリオ,Meiryo,sans-serif
   font-weight: bold
+  background-color: $theme-color-top
+  background-image: url("../assets/hourGlass.svg")
+  background-position: right
+  background-size: contain
 
 .msg
   position: relative

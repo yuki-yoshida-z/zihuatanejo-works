@@ -16,30 +16,27 @@
       <div class="spec-body">
         <h2 class="spec-body__title">使用技術・ツール</h2>
         <div class="spec-body__table-block">
-          <v-card outlined>
-            <v-card-title>
-              <div class="spec-body__input-block">
-                <v-text-field
-                  v-model="search"
-                  append-icon="mdi-magnify"
-                  label="Search"
-                  hide-details
-                ></v-text-field>
-              </div>
-            </v-card-title>
-            <v-data-table
-              :headers="skillHeaders"
-              :items="skillList"
-              :search="search"
-              :page.sync="page"
-              :items-per-page="itemsPerPage"
-              @page-count="pageCount = $event"
-              hide-default-footer
-            ></v-data-table>
-            <div class="text-center pt-2 pb-10">
-              <v-pagination v-model="page" :length="pageCount"></v-pagination>
-            </div>
-          </v-card>
+          <div class="spec-body__input-block">
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Search"
+              hide-details
+              color="#f9b20f"
+            ></v-text-field>
+          </div>
+          <v-data-table
+            :headers="skillHeaders"
+            :items="skillList"
+            :search="search"
+            :page.sync="page"
+            :items-per-page="itemsPerPage"
+            @page-count="pageCount = $event"
+            hide-default-footer
+          ></v-data-table>
+          <div class="text-center pt-2 pb-10">
+            <v-pagination v-model="page" color="#f9b20f" :length="pageCount"></v-pagination>
+          </div>
         </div>
       </div>
     </div>
@@ -133,7 +130,10 @@ export default {
 <style lang="sass" scoped>
 
 .spec
-  min-height: 1300px
+  min-height: 100vh
+  background-image: url("../assets/specBg.svg")
+  background-position: right
+  background-size: contain
 
 .spec-header
   width: 93%
@@ -181,6 +181,14 @@ export default {
     margin-top: 40px
 
   &__input-block
-    width: 30%
+    width: 40%
+    margin-left: auto
+    margin-bottom: 24px
+
+  .v-data-table
+    background-color: rgba(255, 255, 255, 0.4)
+
+    tbody tr:hover
+      background-color: rgba(238, 238, 238, 0.4)
 
 </style>
