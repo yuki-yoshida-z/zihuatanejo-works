@@ -50,6 +50,9 @@ export default {
   &.is-top
     background-color: $theme-color-top
 
+  &.is-about
+    background-color: $theme-color-about
+
   &.is-profile
     background-color: $theme-color-profile
 

@@ -33,7 +33,7 @@
             <li class="profile-body__list-item">
               <span class="profile-body__list-title">GitHub</span>
               <span class="profile-body__list-text">
-                <a class="profile-body__list-link" :href="profile.github.url" target="_blank">{{ profile.github.name }}<v-icon color="#eb4f53">mdi-open-in-new</v-icon></a>
+                <a class="profile-body__list-link" :href="profile.github.url" target="_blank">{{ profile.github.name }}<v-icon color="#44d394">mdi-open-in-new</v-icon></a>
               </span>
             </li>
           </ul>

@@ -32,6 +32,9 @@ export default {
     display: block
     font-size: 1.5rem
 
+    .scene-about &
+      color: $theme-color-about
+
     .scene-profile &
       color: $theme-color-profile
 

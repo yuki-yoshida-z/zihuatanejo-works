@@ -60,6 +60,9 @@ export default {
   &.is-hourGlass
     background-image: url("./assets/hourGlass.svg")
 
+  &.is-aboutHalfHourGlass
+    background-image: url("./assets/aboutBg.svg")
+
   &.is-profileHalfHourGlass
     background-image: url("./assets/profileBg.svg")
 

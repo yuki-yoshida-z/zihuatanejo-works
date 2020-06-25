@@ -12,10 +12,11 @@ export default {
     return {
       pages: [
         { id: 1, name: 'Top', href: '/' },
-        { id: 2, name: 'Profile', href: 'profile' },
-        { id: 3, name: 'Spec', href: 'spec' },
-        { id: 4, name: 'Favorite Products', href: 'products' },
-        { id: 5, name: 'Contact', href: 'contact' }
+        { id: 2, name: 'About', href: 'about' },
+        { id: 3, name: 'Profile', href: 'profile' },
+        { id: 4, name: 'Spec', href: 'spec' },
+        { id: 5, name: 'Favorite Products', href: 'products' },
+        { id: 6, name: 'Contact', href: 'contact' }
       ],
     }
   },
@@ -42,6 +43,10 @@ li
 li.is-top
   a:hover:before
     background-color: $theme-color-top
+
+li.is-about
+  a:hover:before
+    background-color: $theme-color-about
 
 li.is-profile
   a:hover:before
@@ -92,6 +97,10 @@ li.is-contact
   &.is-top
     a
       color: $theme-color-top
+
+  &.is-about
+    a
+      color: $theme-color-about
 
   &.is-profile
     a
