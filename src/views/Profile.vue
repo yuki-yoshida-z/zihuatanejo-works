@@ -3,12 +3,12 @@
     <page-heading heading-en="PROFILE" heading-ja="プロフィール" />
     <div class="profile-content">
       <transition name="fade-block" enter-active-class="animated fadeInLeft faster">
-        <div v-if="BlockAnimationStart" class="profile-header">
+        <div v-if="blockAnimationStart" class="profile-header">
           <img src="@/assets/profile.jpg" class="profile-header__img">
         </div>
       </transition>
       <transition name="fade-block" enter-active-class="animated fadeInRight faster">
-        <div v-if="BlockAnimationStart" class="profile-body">
+        <div v-if="blockAnimationStart" class="profile-body">
           <ul class="profile-body__list">
             <li class="profile-body__list-item">
               <span class="profile-body__list-title">ハンドルネーム</span>
@@ -40,7 +40,7 @@
         </div>
       </transition>
       <transition name="fade-block" enter-active-class="animated fadeInUp faster">
-        <div v-if="BlockAnimationStart" class="profile-footer">
+        <div v-if="blockAnimationStart" class="profile-footer">
           <p class="profile-footer__title">経歴</p>
           <p class="profile-footer__text">{{ convertNewLine(profile.introduction) }}</p>
         </div>
@@ -69,14 +69,14 @@ export default {
         github: {url: '', name: ''},
         introduction: ''
       },
-      BlockAnimationStart: false
+      blockAnimationStart: false
     }
   },
   created(){
     firebase.firestore().collection('profiles').get().then(snapshot => {
       snapshot.forEach(doc => {
         this.profile = doc.data()
-        this.BlockAnimationStart = true
+        this.blockAnimationStart = true
       })
     })
   },
