@@ -3,16 +3,16 @@
     <page-heading heading-en="ABOUT" heading-ja="このサイトについて" />
     <div class="about-content">
       <div class="about-body">
-        <transition name="fade-block" enter-active-class="animated fadeInLeft">
+        <transition name="fade-block" enter-active-class="animate__animated animate__fadeInLeft">
           <p v-if="blockAnimationStart" class="about-body__text is-first">Zihuatanejo Worksを閲覧いただきありがとうございます。<br>本サイトは<span class="is-strong is-color">フリーランスウェブエンジニアZihuatanejo</span>の<br>ポートフォリオサイトになります。</p>
         </transition>
-        <transition name="fade-block" enter-active-class="animated fadeInRight">
+        <transition name="fade-block" enter-active-class="animate__animated animate__fadeInRight">
           <p v-if="blockAnimationStart" class="about-body__text is-second"><span class="is-strong">一緒に仕事をさせていただいている方</span>、<br><span class="is-strong">一緒に仕事をするかどうかご検討中の方</span>、<br><span class="is-strong">ウェブサイトの制作依頼をご検討中の方</span>に<br>少しでも自分のことを知っていただくために制作しました。</p>
         </transition>
-        <transition name="fade-block" enter-active-class="animated fadeInLeft">
+        <transition name="fade-block" enter-active-class="animate__animated animate__fadeInLeft">
           <p v-if="blockAnimationStart" class="about-body__text is-third">本サイトがきっかけとなって、<br><span class="is-strong is-color">お互いの発展や新たな出会い</span>に繋がることを心より願っております。<br>どうぞごゆっくりご覧ください。</p>
         </transition>
-        <transition name="fade-block" enter-active-class="animated fadeInRight">
+        <transition name="fade-block" enter-active-class="animate__animated animate__fadeInRight">
           <p v-if="blockAnimationStart" class="about-body__text is-caution is-forth">なお、本サイトはGitHubに公開してます。ご興味がある方は<a class="about-body__link" href="https://github.com/yuki-yoshida-z/zihuatanejo-works" target="_blank">こちら</a>からご覧ください。</p>
         </transition>
       </div>

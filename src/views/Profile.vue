@@ -2,12 +2,12 @@
   <div class="profile">
     <page-heading heading-en="PROFILE" heading-ja="プロフィール" />
     <div class="profile-content">
-      <transition name="fade-block" enter-active-class="animated fadeInLeft faster">
+      <transition name="fade-block" enter-active-class="animate__animated animate__fadeInLeft faster">
         <div v-if="blockAnimationStart" class="profile-header">
           <img src="@/assets/profile.jpg" class="profile-header__img">
         </div>
       </transition>
-      <transition name="fade-block" enter-active-class="animated fadeInRight faster">
+      <transition name="fade-block" enter-active-class="animate__animated animate__fadeInRight faster">
         <div v-if="blockAnimationStart" class="profile-body">
           <ul class="profile-body__list">
             <li class="profile-body__list-item">
@@ -39,7 +39,7 @@
           </ul>
         </div>
       </transition>
-      <transition name="fade-block" enter-active-class="animated fadeInUp faster">
+      <transition name="fade-block" enter-active-class="animate__animated animate__fadeInUp faster">
         <div v-if="blockAnimationStart" class="profile-footer">
           <p class="profile-footer__title">経歴</p>
           <p class="profile-footer__text">{{ convertNewLine(profile.introduction) }}</p>

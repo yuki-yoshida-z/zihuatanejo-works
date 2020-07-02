@@ -1,10 +1,10 @@
 <template>
   <div class="top">
     <h1 class="msg">
-      <transition name="first-line" enter-active-class="animated fadeIn firstLine">
+      <transition name="first-line" enter-active-class="animate__animated animate__fadeIn firstLine">
         <span v-html="firstLineSentence" class="first-sentence" v-show="lineAnimation"></span>
       </transition>
-      <transition name="second-line" enter-active-class="animated fadeInRight secondLine" v-on:after-enter="dynamicWordAnimationStart">
+      <transition name="second-line" enter-active-class="animate__animated animate__fadeInRight secondLine" v-on:after-enter="dynamicWordAnimationStart">
         <span v-html="secondLineSentence" class="second-sentence" v-show="lineAnimation"></span>
       </transition>
       <span class="third-line">
@@ -12,8 +12,8 @@
           v-show="dynamicWordAnimation"
           v-for="(letter, i) in selectWord"
           :key="i"
-          class="last-word animated"
-          :class="[selectLetterColor(i), {flipInX: flipIn, flipOutX: flipOut, isLastLetter: evalLastLetter(i)}]"
+          class="last-word animate__animated"
+          :class="[selectLetterColor(i), {animate__flipInX: flipIn, animate__flipOutX: flipOut, isLastLetter: evalLastLetter(i)}]"
           :style="{animationDelay: i*100+'ms'}"
           v-text="letter"
         />

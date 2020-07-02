@@ -5,7 +5,7 @@
       <transition-group
         class="products__list list"
         tag="ul"
-        enter-active-class="animated fadeInUp"
+        enter-active-class="animate__animated animate__fadeInUp"
         @before-enter="transitionBeforeEnter"
       >
         <v-card
