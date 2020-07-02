@@ -1,6 +1,7 @@
 const path = require("path");
 
 module.exports = {
+  outputDir: 'functions/dist',
   chainWebpack: config => {
     const oneOfsMap = config.module.rule('sass').oneOfs.store
     oneOfsMap.forEach(item => {
