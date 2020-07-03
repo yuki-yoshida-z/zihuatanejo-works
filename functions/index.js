@@ -1,3 +1,5 @@
+// Basic認証
+// アイパスは.envファイルを作成してそこに記載する(=git管理はしない)
 require('dotenv').config();
 const USERNAME = process.env.BASIC_AUTH_USER
 const PASSWORD = process.env.BASIC_AUTH_PASS
