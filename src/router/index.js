@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Top from '../views/Top.vue'
+import About from '../views/About.vue'
+import Profile from '../views/Profile.vue'
+import Spec from '../views/Spec.vue'
+import Products from '../views/Products.vue'
+import Contact from '../views/Contact.vue'
 
 Vue.use(VueRouter)
 
@@ -13,27 +18,27 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: About
   },
   {
     path: '/profile',
     name: 'profile',
-    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue')
+    component: Profile
   },
   {
     path: '/spec',
     name: 'spec',
-    component: () => import(/* webpackChunkName: "spec" */ '../views/Spec.vue')
+    component: Spec
   },
   {
     path: '/products',
     name: 'products',
-    component: () => import(/* webpackChunkName: "Products" */ '../views/Products.vue')
+    component: Products
   },
   {
     path: '/contact',
     name: 'contact',
-    component: () => import(/* webpackChunkName: "Contact" */ '../views/Contact.vue')
+    component: Contact
   }
 ]
 
