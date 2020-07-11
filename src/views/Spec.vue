@@ -3,9 +3,9 @@
     <page-heading heading-en="SPEC" heading-ja="仕様" />
     <div class="spec-content">
       <div class="spec-header">
-        <h2 class="spec-header__title">自己評価チャート</h2>
+        <h2 class="spec-header__title nw-specHeaderTitle">自己評価チャート</h2>
         <div class="spec-header__chart-block">
-          <div class="spec-header__chart">
+          <div class="spec-header__chart nw-specProgrammingChart">
             <radar-chart
               :chart-title="programmingChartTitle"
               :chart-labels="chartLabels"
@@ -13,7 +13,7 @@
               :options="chartOptions"
             />
           </div>
-          <div class="spec-header__chart">
+          <div class="spec-header__chart nw-specDirectionChart">
             <radar-chart
               :chart-title="directionChartTitle"
               :chart-labels="chartLabels"
@@ -23,8 +23,8 @@
           </div>
         </div>
       </div>
-      <div class="spec-body">
-        <h2 class="spec-body__title">使用技術・ツール</h2>
+      <div class="spec-body nw-specBody">
+        <h2 class="spec-body__title nw-specBodyTitle">使用技術・ツール</h2>
         <div class="spec-body__input-block">
           <v-text-field
             v-model="search"
@@ -43,7 +43,7 @@
           @page-count="pageCount = $event"
           hide-default-footer
         ></v-data-table>
-        <div class="text-center pt-2 pb-10">
+        <div class="text-center pt-2 pb-10 nw-specBodyPagenationBlock">
           <v-pagination v-model="page" color="#f9b20f" :length="pageCount"></v-pagination>
         </div>
       </div>

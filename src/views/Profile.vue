@@ -4,7 +4,7 @@
     <div class="profile-content">
       <transition name="fade-block" enter-active-class="animate__animated animate__fadeInLeft faster">
         <div v-if="blockAnimationStart" class="profile-header">
-          <img src="@/assets/profile.jpg" class="profile-header__img">
+          <v-img src="@/assets/profile.jpg" height="200" width="200" class="nw-profileHeaderImg"></v-img>
         </div>
       </transition>
       <transition name="fade-block" enter-active-class="animate__animated animate__fadeInRight faster">
@@ -12,28 +12,28 @@
           <ul class="profile-body__list">
             <li class="profile-body__list-item">
               <span class="profile-body__list-title">ハンドルネーム</span>
-              <span class="profile-body__list-text">{{ profile.name }}</span>
+              <span class="profile-body__list-text nw-profileHandleName">{{ profile.name }}</span>
             </li>
             <li class="profile-body__list-item">
               <span class="profile-body__list-title">職業</span>
-              <span class="profile-body__list-text">{{ profile.job }}</span>
+              <span class="profile-body__list-text nw-profileJob">{{ profile.job }}</span>
             </li>
             <li class="profile-body__list-item">
               <span class="profile-body__list-title">年齢</span>
-              <span class="profile-body__list-text">{{ calcAgeFromBirthday(profile.birthday) }}歳</span>
+              <span class="profile-body__list-text nw-profileAge">{{ calcAgeFromBirthday(profile.birthday) }}歳</span>
             </li>
             <li class="profile-body__list-item">
               <span class="profile-body__list-title">活動地域</span>
-              <span class="profile-body__list-text">{{ profile.area }}</span>
+              <span class="profile-body__list-text nw-profileArea">{{ profile.area }}</span>
             </li>
             <li class="profile-body__list-item">
               <span class="profile-body__list-title">趣味</span>
-              <span class="profile-body__list-text">{{ joinArray(profile.hobby) }}</span>
+              <span class="profile-body__list-text nw-profileHobby">{{ joinArray(profile.hobby) }}</span>
             </li>
             <li class="profile-body__list-item">
               <span class="profile-body__list-title">GitHub</span>
               <span class="profile-body__list-text">
-                <a class="profile-body__list-link" :href="profile.github.url" target="_blank">{{ profile.github.name }}<v-icon color="#44d394">mdi-open-in-new</v-icon></a>
+                <a class="profile-body__list-link nw-profileLink" :href="profile.github.url" target="_blank">{{ profile.github.name }}<v-icon color="#44d394">mdi-open-in-new</v-icon></a>
               </span>
             </li>
           </ul>
@@ -42,7 +42,7 @@
       <transition name="fade-block" enter-active-class="animate__animated animate__fadeInUp faster">
         <div v-if="blockAnimationStart" class="profile-footer">
           <p class="profile-footer__title">経歴</p>
-          <p class="profile-footer__text">{{ convertNewLine(profile.introduction) }}</p>
+          <p class="profile-footer__text nw-profileIntro">{{ convertNewLine(profile.introduction) }}</p>
         </div>
       </transition>
     </div>
@@ -73,12 +73,16 @@ export default {
     }
   },
   created(){
-    firebase.firestore().collection('profiles').get().then(snapshot => {
-      snapshot.forEach(doc => {
-        this.profile = doc.data()
-        this.blockAnimationStart = true
+    firebase.firestore().collection('profiles').get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          this.profile = doc.data()
+          this.blockAnimationStart = true
+        })
       })
-    })
+      .catch(error => {
+        console.log(error)
+      })
   },
   computed: {
     calcAgeFromBirthday(){
@@ -125,10 +129,6 @@ export default {
 .profile-header
   flex-basis: 200px
   margin-right: 3vw
-
-  &__img
-    display: block
-    width: 200px
 
 .profile-body
   flex-basis: calc(100% - 200px - 3vw)

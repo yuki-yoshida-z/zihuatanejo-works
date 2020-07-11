@@ -3,7 +3,7 @@
     <page-heading heading-en="FAVORITE PRODUCTS" heading-ja="お気に入りプロダクト" />
     <div class="products-content">
       <transition-group
-        class="products__list list"
+        class="products__list nw-productsList"
         tag="ul"
         enter-active-class="animate__animated animate__fadeInUp"
         @before-enter="transitionBeforeEnter"
@@ -15,7 +15,7 @@
           :data-index="index"
           :hover=true
           :href="product.url"
-          class="products__list-item"
+          class="products__list-item nw-productsListItem"
           target="blank"
           max-width="320px"
         >
@@ -27,9 +27,9 @@
             max-width="320px"
             contain
           />
-          <v-card-title class="products__list-title">{{ product.name }}</v-card-title>
-          <v-card-subtitle class="pb-0">{{ product.company }}</v-card-subtitle>
-          <v-card-text class="text--primary">
+          <v-card-title class="products__list-title nw-productsListTitle">{{ product.name }}</v-card-title>
+          <v-card-subtitle class="pb-0 nw-productsListCompany">{{ product.company }}</v-card-subtitle>
+          <v-card-text class="text--primary nw-productsListText">
             <div>{{ product.description }}</div>
           </v-card-text>
         </v-card>

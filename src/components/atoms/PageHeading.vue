@@ -1,7 +1,7 @@
 <template>
   <h1 class="page-heading">
-    <span class="page-heading__en">{{ headingEn }}</span>
-    <span class="page-heading__ja">{{ headingJa }}</span>
+    <span class="page-heading__en nw-pageHeadingEn">{{ headingEn }}</span>
+    <span class="page-heading__ja nw-pageHeadingJa">{{ headingJa }}</span>
   </h1>
 </template>
 

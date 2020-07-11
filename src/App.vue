@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-app style="height: 0; margin: 0; padding: 0;">
-      <div :class="this.sceneClass">
+      <div :class="sceneClass">
         <main-header/>
         <div class="main-content" :class="bgStyle">
           <page-curtain/>
@@ -22,17 +22,10 @@ export default {
     MainHeader,
     PageCurtain
   },
-  data(){
-    return{
-      sceneClass: 'scene-top'
-    }
-  },
-  mounted () {
-    this.$router.afterEach((to) => {
-      this.sceneClass = "scene-" + to.name;
-    })
-  },
   computed: {
+    sceneClass(){
+      return this.$route.name === 'top' ? 'scene-top' : 'scene-' + this.$route.name
+    },
     bgStyle(){
       return this.$route.name === 'top' ? 'is-hourGlass' : 'is-' + this.$route.name + 'HalfHourGlass'
     }

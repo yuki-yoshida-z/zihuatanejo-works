@@ -2,12 +2,12 @@
   <div class="top">
     <h1 class="msg">
       <transition name="first-line" enter-active-class="animate__animated animate__fadeIn firstLine">
-        <span v-html="firstLineSentence" class="first-sentence" v-show="lineAnimation"></span>
+        <span v-html="firstLineSentence" class="first-sentence nw-msgFirstLine" v-show="lineAnimation"></span>
       </transition>
       <transition name="second-line" enter-active-class="animate__animated animate__fadeInRight secondLine" v-on:after-enter="dynamicWordAnimationStart">
-        <span v-html="secondLineSentence" class="second-sentence" v-show="lineAnimation"></span>
+        <span v-html="secondLineSentence" class="second-sentence nw-msgSecondLine" v-show="lineAnimation"></span>
       </transition>
-      <span class="third-line">
+      <span class="third-line nw-msgThirdLine">
         <span
           v-show="dynamicWordAnimation"
           v-for="(letter, i) in selectWord"

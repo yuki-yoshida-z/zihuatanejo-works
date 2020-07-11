@@ -1,7 +1,7 @@
 <template>
-  <ul class="global-nav__list">
+  <ul class="global-nav__list nw-globalNav">
     <router-link v-for="page in pages" :key="page.id" tag="li" :to="{ path: page.href }" :class="convertstrclassname(page.name)">
-      <a class="global-nav__link">{{ page.name }}</a>
+      <a class="global-nav__link nw-globalNavLink">{{ page.name }}</a>
     </router-link>
   </ul>
 </template>

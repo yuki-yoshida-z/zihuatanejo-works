@@ -6,6 +6,7 @@ import Profile from '../views/Profile.vue'
 import Spec from '../views/Spec.vue'
 import Products from '../views/Products.vue'
 import Contact from '../views/Contact.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
     path: '/contact',
     name: 'contact',
     component: Contact
+  },
+  {
+    path: '*',
+    name: '404',
+    component: NotFound
   }
 ]
 
