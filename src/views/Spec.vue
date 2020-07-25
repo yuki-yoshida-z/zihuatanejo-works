@@ -87,9 +87,9 @@ export default {
         }
       },
       programmingChartTitle: '開発',
-      programmingChartData: {},
+      programmingChartData: [],
       directionChartTitle: 'ディレクション',
-      directionChartData: {},
+      directionChartData: [],
       page: 1,
       pageCount: 0,
       itemsPerPage: 10,
@@ -102,23 +102,33 @@ export default {
   created(){
     firebase.firestore().collection('specs').get().then(snapshot => {
       const pageProperty = snapshot.docs.map(doc => doc.data())
-      this.programmingChartData = pageProperty[0].chart.programming.data
-      this.directionChartData = pageProperty[0].chart.direction.data
-      this.skillHeaders = pageProperty[0].skills.headers
-      pageProperty[0].skills.skillList.forEach(skill => {
-        skill.experience = this.calcPeriodFromSkillStartUsingForWorkAt(skill.started_using_for_work_at)
-        skill.level = this.convertSkillLevelToStrings(skill.level)
+      pageProperty.forEach((pageProps) => {
+        Object.keys(pageProps).forEach((key) => {
+          if(key === 'skills'){
+            pageProps.skills.forEach(skill =>{
+              skill.experience = this.calcExperience(skill.started_using_for_work_at, skill.ended_using_for_work_at)
+              skill.level = this.convertSkillLevelToStrings(skill.level)
+            })
+            this.skillList = pageProps.skills
+          }else if(key === 'headers'){
+            this.skillHeaders = pageProps.headers
+          }else if(key === 'programming'){
+            this.programmingChartData = pageProps.programming
+          }else if(key === 'direction'){
+            this.directionChartData = pageProps.direction
+          }
+        })
       })
-      this.skillList = pageProperty[0].skills.skillList
     })
   },
   computed: {
-    calcPeriodFromSkillStartUsingForWorkAt(){
-      return (skillStartUsingForWorkAt) => {
+    calcExperience(){
+      return (skillStartUsingForWorkAt, skillEndUsingForWorkAt) => {
         const today = new Date()
         const startAtToDate = skillStartUsingForWorkAt.toDate()
-        let periodYear = today.getFullYear() - startAtToDate.getFullYear()
-        let periodMonth = today.getMonth() - startAtToDate.getMonth()
+        const endAtToDate = skillStartUsingForWorkAt.length > 0 ? skillEndUsingForWorkAt.toDate() : today
+        let periodYear = endAtToDate.getFullYear() - startAtToDate.getFullYear()
+        let periodMonth = endAtToDate.getMonth() - startAtToDate.getMonth()
         if(periodMonth < 0){
           periodYear -= 1
           periodMonth = -periodMonth

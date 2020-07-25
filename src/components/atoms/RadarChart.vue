@@ -8,14 +8,14 @@ export default {
   props: {
     chartTitle: String,
     chartLabels: Array,
-    chartData: Object,
+    chartData: Array,
     options: Object
   },
   watch: {
     chartData(){
       this.options.title.text = this.chartTitle
-      this.chartData.labels = this.chartLabels
-      this.renderChart(this.chartData, this.options)
+      const dataCollection = {labels: this.chartLabels, datasets: this.chartData}
+      this.renderChart(dataCollection, this.options)
     }
   }
 }
