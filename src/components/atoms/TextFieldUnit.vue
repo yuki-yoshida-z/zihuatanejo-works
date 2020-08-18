@@ -15,7 +15,7 @@
         ></v-text-field>
       </div>
       <div v-show="!editMode" class="text-field-unit__display-block is-text">
-        <p class="text-field-unit__text is-text"><v-icon dense @click="toEditMode">mdi-pencil</v-icon>{{ inputValue }}</p>
+        <p :class="['text-field-unit__text', 'is-text', addClassForNw ]"><v-icon dense @click="toEditMode">mdi-pencil</v-icon>{{ inputValue }}</p>
       </div>
     </template>
     <template v-else>
@@ -35,7 +35,7 @@
         ></v-textarea>
       </div>
       <div v-show="!editMode" class="text-field-unit__display-block is-textarea">
-        <p class="text-field-unit__text is-textarea"><v-icon dense @click="toEditMode">mdi-pencil</v-icon><span v-html="inputValue"></span></p>
+        <p :class="['text-field-unit__text', 'is-textarea', addClassForNw ]"><v-icon dense @click="toEditMode">mdi-pencil</v-icon>{{ inputValue }}</p>
       </div>
     </template>
   </div>
@@ -54,6 +54,7 @@ export default {
     elementType: String,
     displayName: String,
     name: String,
+    elemClass: String,
     placeholder: String,
     validationNames: Object
   },
@@ -78,7 +79,7 @@ export default {
       const errors = []
       if (!this.$v.inputValue.$dirty) return errors
       this.$v.inputValue.required !== undefined && !this.$v.inputValue.required && errors.push(this.displayName+ 'を入力してください')
-      this.$v.inputValue.maxLength !== undefined && !this.$v.inputValue.maxLength && errors.push(this.displayName+ 'は' + this.$v.inputValue.$params.maxLength.max + '文字以上は入力できません')
+      this.$v.inputValue.maxLength !== undefined && !this.$v.inputValue.maxLength && errors.push(this.displayName+ 'は' + (this.$v.inputValue.$params.maxLength.max + 1) + '文字以上は入力できません')
       this.$v.inputValue.email !== undefined && !this.$v.inputValue.email&& errors.push(this.displayName + 'の形式に誤りがあります')
       return errors
     },
@@ -88,6 +89,11 @@ export default {
       const maxLengthObj = 'maxLength' in this.validationNames && Number.isInteger(this.validationNames.maxLength) ? { maxLength: maxLength(this.validationNames.maxLength)} : {}
       const emailObj = 'email' in this.validationNames && this.validationNames.email ? { email } : {}
       return { ...requiredObj, ...maxLengthObj, ...emailObj }
+    },
+
+    addClassForNw(){
+      const upperCase = this.name.charAt(0).toUpperCase() + this.name.slice(1);
+      return "nw-textFieldDisplay" + upperCase
     }
   },
 

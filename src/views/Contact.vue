@@ -5,21 +5,21 @@
       <div class="contact-body">
         <template v-if="submitComplete">
           <div class=contact-body__msg-block>
-            <p class="contact-body__thanks-title">お問い合せありがとうございます。</p>
-            <p class="contact-body__thanks-text">内容を確認して近日中にご連絡いたします。</p>
-            <p class="contact-body__thanks-caution-text">また、ご入力いただいたメールアドレスに確認メールをお送りしています。<br>メールが届かない場合は受信設定をご確認の上、再度お問い合せフォームからご連絡ください。</p>
+            <p class="contact-body__thanks-title nw-contactThanksTitle">お問い合せありがとうございます。</p>
+            <p class="contact-body__thanks-text nw-contactThanksText">内容を確認して近日中にご連絡いたします。</p>
+            <p class="contact-body__thanks-caution-text nw-contactThanksCautionText">また、ご入力いただいたメールアドレスに確認メールをお送りしています。<br>メールが届かない場合は受信設定をご確認の上、再度お問い合せフォームからご連絡ください。</p>
           </div>
         </template>
         <template v-else>
-          <div v-if="spinner" class="contact-body__spinner-block">
+          <div v-if="spinner" class="contact-body__spinner-block nw-contactSpinnerBlock">
             <v-progress-circular
               :size="50"
               color="primary"
               indeterminate
             ></v-progress-circular>
           </div>
-          <div :class="['contact-body__item', {'is-sending': spinner}]">
-            <label class="contact-body__label is-required">氏名</label>
+          <div :class="['contact-body__item', {'is-sending': spinner}, 'nw-contactItem']">
+            <label class="contact-body__label is-required nw-contactFormLabelName">氏名</label>
             <div class="contact-body__input-block">
               <text-field-unit
                 element-type="text"
@@ -32,8 +32,8 @@
             </div>
           </div>
 
-          <div :class="['contact-body__item', {'is-sending': spinner}]">
-            <label class="contact-body__label is-required">メールアドレス</label>
+          <div :class="['contact-body__item', {'is-sending': spinner}, 'nw-contactItem']">
+            <label class="contact-body__label is-required nw-contactFormLabelEmail">メールアドレス</label>
             <div class="contact-body__input-block">
               <text-field-unit
                 element-type="text"
@@ -46,8 +46,8 @@
             </div>
           </div>
 
-          <div :class="['contact-body__item', {'is-sending': spinner}]">
-            <label class="contact-body__label">会社名</label>
+          <div :class="['contact-body__item', {'is-sending': spinner}, 'nw-contactItem']">
+            <label class="contact-body__label nw-contactFormLabelCompany">会社名</label>
             <div class="contact-body__input-block">
               <text-field-unit
                 element-type="text"
@@ -60,21 +60,21 @@
             </div>
           </div>
 
-          <div :class="['contact-body__item', {'is-sending': spinner}]">
-            <label class="contact-body__label is-required">お問い合せ内容</label>
+          <div :class="['contact-body__item', {'is-sending': spinner}, 'nw-contactItem']">
+            <label class="contact-body__label is-required nw-contactFormLabelInpuiryType">お問い合わせ内容</label>
             <div class="contact-body__input-block is-radio">
               <v-radio-group v-model="selectedInquiryType" :mandatory="false">
-                <v-radio  v-for="type in inquiryTypes" :key="type" color="#315def" :label="type" :value="type"></v-radio>
+                <v-radio  v-for="(type, index) in inquiryTypes" :id="'inquiryTypes_' + index" :key="type" color="#315def" :label="type" :value="type"></v-radio>
               </v-radio-group>
             </div>
           </div>
 
-          <div :class="['contact-body__item', {'is-sending': spinner}]">
-            <label class="contact-body__label is-required">お問い合せ詳細</label>
+          <div :class="['contact-body__item', {'is-sending': spinner}, 'nw-contactItem']">
+            <label class="contact-body__label is-required nw-contactFormLabelInquiry">お問い合わせ詳細</label>
             <div class="contact-body__input-block">
               <text-field-unit
                 element-type="textarea"
-                display-name="お問い合せ詳細"
+                display-name="お問い合わせ詳細"
                 name="inquiry"
                 placeholder="LP製作に関しての見積もりを依頼します。"
                 :validation-names="{ required: true, maxLength: 1000 }"
@@ -83,14 +83,14 @@
             </div>
           </div>
 
-          <div :class="['contact-body__item', {'is-sending': spinner}]">
+          <div :class="['contact-body__item', {'is-sending': spinner}, 'nw-contactItem']">
             <div class="contact-body__input-block">
               <v-btn
                 x-large
                 :disabled="!canSubmit"
                 color="primary"
                 width="100%"
-                class="contact-body__submit-btn"
+                class="contact-body__submit-btn nw-contactFormSubmitBtn"
                 @click="onSubmit"
               >送信</v-btn>
             </div>
