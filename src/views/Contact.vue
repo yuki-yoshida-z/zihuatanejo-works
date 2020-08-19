@@ -174,7 +174,7 @@ export default {
           inquiry: this.inquiry,
           sendAt: new Date()
         }
-        firebase.firestore().collection('contacts').doc("inquiries").set(submitDate)
+        firebase.firestore().collection(process.env.VUE_APP_CONTACTS_COLLECTION_NAME).add(submitDate)
           .then(() => {
             this.spinner = false
             this.submitComplete = true

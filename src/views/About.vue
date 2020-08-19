@@ -28,11 +28,13 @@ export default {
   components: {
     PageHeading
   },
+
   data(){
     return {
       blockAnimationStart: false
     }
   },
+
   mounted() {
     this.blockAnimationStart = true
   }
