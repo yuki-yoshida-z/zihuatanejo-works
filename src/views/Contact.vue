@@ -7,7 +7,7 @@
           <div class=contact-body__msg-block>
             <p class="contact-body__thanks-title nw-contactThanksTitle">お問い合せありがとうございます。</p>
             <p class="contact-body__thanks-text nw-contactThanksText">内容を確認して近日中にご連絡いたします。</p>
-            <p class="contact-body__thanks-caution-text nw-contactThanksCautionText">また、ご入力いただいたメールアドレスに確認メールをお送りしています。<br>メールが届かない場合は受信設定をご確認の上、再度お問い合せフォームからご連絡ください。</p>
+            <p class="contact-body__thanks-caution-text nw-contactThanksCautionText">ご入力いただいたメールアドレスに確認メールをお送りしています。<br>メールが届かない場合は受信設定をご確認の上、再度お問い合せフォームからご連絡ください。</p>
           </div>
         </template>
         <template v-else>
@@ -128,6 +128,7 @@ export default {
         company: true,
         inquiry: false
       },
+      sendAt: '',
       canSubmit: false,
       spinner: false,
       submitComplete: false
@@ -166,23 +167,81 @@ export default {
     onSubmit(){
       if(this.canSubmit === true){
         this.spinner = true
+        this.sendAt = new Date()
         const submitDate = {
           fullName: this.fullName,
           email: this.email,
           company: this.company,
           inquiryType: this.selectedInquiryType,
           inquiry: this.inquiry,
-          sendAt: new Date()
+          sendAt: this.sendAt
         }
         firebase.firestore().collection(process.env.VUE_APP_CONTACTS_COLLECTION_NAME).add(submitDate)
           .then(() => {
             this.spinner = false
             this.submitComplete = true
+            this.sendMail('User')
+            this.sendMail('Admin')
           })
           .catch(() => {
             alert('エラーによりお問い合せ内容を送信できませんでした。ページをリロードして再度お試しください。')
           })
       }
+    },
+
+    sendMail(sendTo){
+      const toAddress = (() => {
+        switch (sendTo) {
+            case "Admin": return process.env.VUE_APP_ADMIN_MAIL;
+            case "User": return this.email;
+        }
+      })();
+
+      const fromAddress = (() => {
+        switch (sendTo) {
+            case "Admin": return this.email;
+            case "User": return process.env.VUE_APP_ADMIN_MAIL;
+        }
+      })();
+
+      const subject = (() => {
+        switch (sendTo) {
+            case "Admin": return process.env.VUE_APP_CONTACT_NOTICE_SUBJECT;
+            case "User": return process.env.VUE_APP_CONTACT_THANKS_SUBJECT;
+        }
+      })();
+
+      const contentHTML = (() => {
+        switch (sendTo) {
+          case "Admin":
+            return "<code>" + "<p>" + process.env.VUE_APP_CONTACT_NOTICE_SUBJECT + "</p><p>" + "【お問い合わせ内容】" + "<br>" + "日時：" + this.sendAt + "<br>" + "氏名：" + this.fullName + "<br>" + "メールアドレス：" + this.email + "<br>" + "会社名：" + this.company + "<br>" + "お問い合わせ内容：" + this.selectedInquiryType + "<br>" + "お問い合わせ詳細：" + this.inquiry + "</p></code>";
+          case "User":
+            return "<code>" + "<p>" + process.env.VUE_APP_CONTACT_THANKS_SUBJECT + "<br>"  + "内容を確認して近日中にご連絡いたします。" + "</p><p>" + "【お問い合わせ内容】" + "<br>" + "氏名：" + this.fullName + "<br>" + "メールアドレス：" + this.email + "<br>" + "会社名：" + this.company + "<br>" + "お問い合わせ内容：" + this.selectedInquiryType + "<br>" + "お問い合わせ詳細：" + this.inquiry + "</p><p>" + "本メールにお心当たりのない方はお手数ですが" + process.env.VUE_APP_ADMIN_MAIL + "までご連絡ください。" + "</p></code>";
+        }
+      })();
+
+      const contentText = (() => {
+        switch (sendTo) {
+          case "Admin":
+            return  process.env.VUE_APP_CONTACT_NOTICE_SUBJECT + "\r\n\r\n" + "【お問い合わせ内容】" + "\r\n" + "日時：" + this.sendAt + "\r\n" + "氏名：" + this.fullName + "\r\n" + "メールアドレス：" + this.email + "\r\n" + "会社名：" + this.company + "\r\n" + "お問い合わせ内容：" + this.selectedInquiryType + "\r\n" + "お問い合わせ詳細：" + this.inquiry;
+          case "User":
+            return process.env.VUE_APP_CONTACT_THANKS_SUBJECT + "\r\n\r\n"  + "内容を確認して近日中にご連絡いたします。" + "\r\n\r\n" + "【お問い合わせ内容】" + "\r\n" + "氏名：" + this.fullName + "\r\n" + "メールアドレス：" + this.email + "\r\n" + "会社名：" + this.company + "\r\n" + "お問い合わせ内容：" + this.selectedInquiryType + "\r\n" + "お問い合わせ詳細：" + this.inquiry + "\r\n\r\n" + "本メールにお心当たりのない方はお手数ですが" + process.env.VUE_APP_ADMIN_MAIL + "までご連絡ください。";
+        }
+      })();
+
+      const sendDate = {
+        to: [toAddress],
+        from: fromAddress,
+        message: {
+          subject: subject,
+          text: contentText,
+          html: contentHTML
+        }
+      }
+      firebase.firestore().collection('contact_mails').add(sendDate)
+        .then(() => {
+          console.log("メールの送信が完了しました")
+        })
     }
   }
 }
