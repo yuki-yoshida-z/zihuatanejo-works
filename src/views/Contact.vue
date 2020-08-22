@@ -174,7 +174,8 @@ export default {
           company: this.company,
           inquiryType: this.selectedInquiryType,
           inquiry: this.inquiry,
-          sendAt: this.sendAt
+          sendAt: this.sendAt,
+          adminChecked: false
         }
         firebase.firestore().collection(process.env.VUE_APP_CONTACTS_COLLECTION_NAME).add(submitDate)
           .then(() => {
