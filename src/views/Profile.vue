@@ -115,10 +115,11 @@ export default {
 <style lang="sass" scoped>
 
 .profile
-  min-height: 100vh
   background-image: url("../assets/profileBg.svg")
   background-position: right
   background-size: contain
+  overflow-y: scroll
+  height: 100vh
 
 .profile-content
   display: flex

@@ -148,10 +148,11 @@ export default {
 <style lang="sass" scoped>
 
 .spec
-  min-height: 1740px
   background-image: url("../assets/specBg.svg")
   background-position: right
   background-size: contain
+  overflow-y: scroll
+  height: 100vh
 
 .spec-header
   width: 93%

@@ -251,10 +251,11 @@ export default {
 <style lang="sass" scoped>
 
 .contact
-  min-height: 100vh
   background-image: url("../assets/contactBg.svg")
   background-position: right
   background-size: contain
+  overflow-y: scroll
+  height: 100vh
 
 .contact-content
   display: flex

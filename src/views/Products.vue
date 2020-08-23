@@ -69,10 +69,11 @@ export default {
 <style lang="sass" scoped>
 
 .products
-  min-height: 100vh
   background-image: url("../assets/productsBg.svg")
   background-position: right
   background-size: contain
+  overflow-y: scroll
+  height: 100vh
 
 .products-content
   margin-top: 24px
