@@ -97,7 +97,7 @@ export default {
     list-style: none
     margin: 40px 40px 0 0
     .isMobile &
-      margin: 3rem 0 0
+      margin: 3rem 1rem 0 0
 
   &__list-img
     border-bottom: 1px solid #eee
