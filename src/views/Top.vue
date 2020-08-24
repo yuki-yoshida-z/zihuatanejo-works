@@ -26,6 +26,7 @@
 
 export default {
   name: 'top',
+
   data () {
     return {
       lineAnimation: false,
@@ -40,17 +41,21 @@ export default {
       letterColorName: ["red", "yellow", "black", "green", "orange"]
     }
   },
+
   mounted(){
     this.lineAnimation = true
     window.addEventListener('animationend', this.changeDynamicWord, false)
   },
+
   destroyed(){
     window.removeEventListener('animationend', this.changeDynamicWord, false)
   },
+
   computed: {
     selectWord(){
       return this.dynamicWords[this.selectedWordsNum]
     },
+
     evalLastLetter(){
       return (i) => {
         if(this.dynamicWords[this.selectedWordsNum].length - 1 === i){
@@ -58,6 +63,7 @@ export default {
         }
       }
     },
+
     selectLetterColor(){
       return (i) => {
         if(i > this.letterColorName.length - 1){
@@ -68,10 +74,12 @@ export default {
       }
     }
   },
+
   methods: {
     dynamicWordAnimationStart(){
       this.dynamicWordAnimation = true
     },
+
     changeDynamicWord(e){
       if(e.target.classList.contains('isLastLetter')){
         if(e.animationName === 'flipInX'){
@@ -108,12 +116,22 @@ export default {
   background-image: url("../assets/hourGlass.svg")
   background-position: right
   background-size: contain
+  .isMobile &
+    background-position: top
+    height: calc(100vh - 3rem)
+    padding: 0
+    background-size: cover
 
 .msg
   position: relative
   display: block
   color: #fff
   letter-spacing: 0.2vw
+  .isMobile &
+    margin: 0 auto
+    padding: 1rem 0
+    width: 100%
+    background-color: rgba(0, 0, 0, 0.3)
 
 .firstLine
   animation-delay: .2s
@@ -125,20 +143,32 @@ export default {
   display: block
   height: 10vw
   text-align: right
+  .isMobile &
+    text-align: center
+    height: 4rem
 
 .first-sentence
   display: block
   font-size: 6vw
   text-align: right
+  .isMobile &
+    font-size: 2.3rem
+    text-align: center
 
 .second-sentence
   display: block
   font-size: 5vw
   text-align: right
+  .isMobile &
+    font-size: 2rem
+    text-align: center
 
 .last-word
   display: inline-block
   font-size: 7vw
+  .isMobile &
+    font-size: 2.8rem
+    text-align: center
 
   &.is-white
     color: #fff

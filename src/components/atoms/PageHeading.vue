@@ -19,6 +19,8 @@ export default {
 .page-heading
   display: block
   padding: 100px 7% 48px
+  .isMobile &
+    padding: 2rem 2rem 0
 
   &__en
     display: block
@@ -27,10 +29,12 @@ export default {
     font-size: 4rem
     line-height: 1.1
     color: $text-black
+    .isMobile &
+      font-size: 2.4rem
 
   &__ja
     display: block
-    font-size: 1.5rem
+    font-size: 1.2rem
 
     .scene-about &
       color: $theme-color-about

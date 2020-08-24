@@ -24,6 +24,7 @@
             :src="product.image_path"
             class="white--text align-end products__list-img"
             height="168px"
+            width="320px"
             max-width="320px"
             contain
           />
@@ -35,7 +36,6 @@
         </v-card>
       </transition-group>
     </div>
-
   </div>
 </template>
 
@@ -45,19 +45,23 @@ import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
   name: 'products',
+
   components: {
     PageHeading
   },
+
   data(){
     return {
       products: null
     }
   },
+
   created(){
     firebase.firestore().collection('products').orderBy('order').get().then(snapshot => {
       this.products = snapshot.docs.map(doc => doc.data())
     })
   },
+
   methods: {
     transitionBeforeEnter(el) {
       el.style.animationDelay = Number(el.dataset.index) / 10 + 's'
@@ -78,6 +82,8 @@ export default {
 .products-content
   margin-top: 24px
   padding: 0 0 0 7%
+  .isMobile &
+    padding: 0 2rem
 
 .products
   padding-bottom: 120px
@@ -90,6 +96,8 @@ export default {
   &__list-item
     list-style: none
     margin: 40px 40px 0 0
+    .isMobile &
+      margin: 3rem 0 0
 
   &__list-img
     border-bottom: 1px solid #eee

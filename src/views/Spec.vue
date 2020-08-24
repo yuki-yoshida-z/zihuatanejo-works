@@ -42,6 +42,7 @@
           :items-per-page="itemsPerPage"
           @page-count="pageCount = $event"
           hide-default-footer
+          mobile-breakpoint=668
         ></v-data-table>
         <div class="text-center pt-2 pb-10 nw-specBodyPagenationBlock">
           <v-pagination v-model="page" color="#f9b20f" :length="pageCount"></v-pagination>
@@ -58,10 +59,12 @@ import RadarChart from '@/components/atoms/RadarChart.vue'
 
 export default {
   name: 'spec',
+
   components: {
     PageHeading,
     RadarChart
   },
+
   data(){
     return {
       chartLabels: ['実務経験', '適性', '知識', '実務スピード'],
@@ -99,6 +102,7 @@ export default {
       skillLevelStrings: ['初学者', 'ドキュメントを確認しながら対応できる', '基本的なことは対応できる', '一通りのことは対応できる', '人に教えられる']
     }
   },
+
   created(){
     firebase.firestore().collection('specs').get().then(snapshot => {
       const pageProperty = snapshot.docs.map(doc => doc.data())
@@ -121,6 +125,14 @@ export default {
       })
     })
   },
+
+  mounted(){
+    console.log(this.$mq)
+    if(this.$mq === 'tableBreakPoint'){
+      this.itemsPerPage = 5
+    }
+  },
+
   computed: {
     calcExperience(){
       return (skillStartUsingForWorkAt, skillEndUsingForWorkAt) => {
@@ -136,6 +148,7 @@ export default {
         return String(periodYear) + '年' + String(periodMonth) + 'ヶ月'
       }
     },
+
     convertSkillLevelToStrings(){
       return (level) => {
         return this.skillLevelStrings[level - 1]
@@ -159,18 +172,31 @@ export default {
   min-width: 824px
   max-width: 1200px
   padding: 0 0 0 7%
+  .isMobile &
+    width: 100%
+    max-width: 100%
+    min-width: 100%
+    margin-top: 2rem
+    padding: 0 2rem
 
   &__title
     font-size: 2rem
+    .isMobile &
+      font-size: 1.4rem
 
   &__chart-block
     margin-top: 40px
     display: flex
     justify-content: space-between
+    .isMobile &
+      flex-wrap: wrap
 
   &__chart
     flex-basis: 46%
     min-width: 360px
+    .isMobile &
+      min-width: 330px
+      width: 100%
 
 .spec-body
   width: 93%
@@ -178,22 +204,18 @@ export default {
   max-width: 1200px
   margin-top: 48px
   padding: 0 0 120px 7%
+  .isMobile &
+    width: 100%
+    max-width: 100%
+    min-width: 100%
+    margin-top: 2rem
+    padding: 0 2rem
+
 
   &__title
     font-size: 2rem
-
-  &__list
-    display: flex
-    margin-top: 40px
-    padding: 0
-    justify-content: space-around
-
-  &__list-item
-    list-style: none
-    flex-basis: 23%
-
-  &__list-title
-    margin-bottom: 24px
+    .isMobile &
+      font-size: 1.4rem
 
   &__input-block
     width: 40%

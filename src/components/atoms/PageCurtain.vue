@@ -8,21 +8,25 @@
 
 export default {
   name: "curtain",
+
   data(){
     return {
       curtainShow: true,
       curtainColorClass: ''
     }
   },
+
   created(){
     if(this.$route.name === 'top'){
       this.curtainColorClass = 'is-top'
     }
   },
+
   mounted(){
     setTimeout( () => {
       this.curtainShow = false
     }, 300),
+
     this.$router.beforeEach((to, from, next) => {
       this.curtainColorClass = "is-" + to.name
       this.curtainShow = true
@@ -30,6 +34,7 @@ export default {
         next()
       }, 500)
     }),
+
     this.$router.afterEach((to) => {
       this.curtainColorClass = "is-" + to.name
       setTimeout( () => {
@@ -73,12 +78,20 @@ export default {
 .curtain-toggle-enter-active, .curtain-toggle-leave-active
   transition: width .5s
   width: 100%
+  .isMobile &
+    transition: height .5s
+    height: 100%
 
 .curtain-toggle-enter
   width: 0
+  .isMobile &
+    width: 100%
+    height: 0%
 
 .curtain-toggle-leave-to
   width: 0
-  right: 0
+  .isMobile &
+    width: 100%
+    height: 0
 
 </style>

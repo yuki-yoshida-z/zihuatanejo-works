@@ -4,7 +4,12 @@
     <div class="profile-content">
       <transition name="fade-block" enter-active-class="animate__animated animate__fadeInLeft faster">
         <div v-if="blockAnimationStart" class="profile-header">
-          <v-img src="@/assets/profile.jpg" height="200" width="200" class="nw-profileHeaderImg"></v-img>
+          <v-img
+            src="@/assets/profile.jpg"
+            height="200"
+            width="200"
+            class="nw-profileHeaderImg"
+          ></v-img>
         </div>
       </transition>
       <transition name="fade-block" enter-active-class="animate__animated animate__fadeInRight faster">
@@ -55,9 +60,11 @@ import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
   name: 'profile',
+
   components: {
     PageHeading
   },
+
   data(){
     return {
       profile: {
@@ -72,6 +79,7 @@ export default {
       blockAnimationStart: false
     }
   },
+
   created(){
     firebase.firestore().collection('profiles').get()
       .then(snapshot => {
@@ -84,6 +92,7 @@ export default {
         console.log(error)
       })
   },
+
   computed: {
     calcAgeFromBirthday(){
       return (birthday) => {
@@ -98,11 +107,13 @@ export default {
         }
       }
     },
+
     joinArray(){
       return (arry) =>{
         return arry.join('、')
       }
     },
+
     convertNewLine(){
       return (text) =>{
         return text.replace(/\\n/g, '\n')
@@ -126,6 +137,9 @@ export default {
   flex-wrap: wrap
   margin-top: 24px
   padding: 0 7%
+  .isMobile &
+    display: block
+    padding: 0 2rem
 
 .profile-header
   flex-basis: 200px
@@ -134,14 +148,20 @@ export default {
 .profile-body
   flex-basis: calc(100% - 200px - 3vw)
   color: $text-black
+  .isMobile &
+    margin-top: 2rem
 
   &__list
     list-style: none
+    .isMobile &
+      padding: 0
 
   &__list-item
     margin-top: .6rem
     &:first-child
       margin-top: 0
+    .isMobile &
+      margin-top: 1rem
 
   &__list-title
     display: inline-block
@@ -151,9 +171,15 @@ export default {
     font-weight: bold
     color: $theme-color-profile
     text-align: right
+    .isMobile &
+      display: block
+      text-align: left
 
   &__list-text
     font-size: 1.2rem
+    .isMobile &
+      display: block
+      padding-left: 1rem
 
   &__list-link
     +text-link($color: $theme-color-profile, $hover-color: $theme-color-profile)
@@ -175,6 +201,8 @@ export default {
     font-size: 1.2rem
     font-weight: bold
     color: $theme-color-profile
+    .isMobile &
+      margin-bottom: 0
 
   &__text
     padding: .4rem 1rem
@@ -182,5 +210,7 @@ export default {
     word-wrap: break-word
     font-size: 1.2rem
     line-height: 1.6
+    .isMobile &
+      padding: 0 0 0 1rem
 
 </style>

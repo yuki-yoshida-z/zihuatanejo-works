@@ -31,6 +31,8 @@ export default {
   flex-wrap: wrap
   margin-top: 24px
   padding: 0 7%
+  .isMobile &
+    padding: 0 2rem
 
   &__text
     color: $text-black

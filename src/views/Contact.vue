@@ -262,18 +262,25 @@ export default {
   flex-wrap: wrap
   margin-top: 24px
   padding: 0 7%
+  .isMobile &
+    padding: 0 2rem
 
 .contact-body
   position: relative
   padding-bottom: 120px
+  width: 100%
 
   &__thanks-title
     font-size: 1.4rem
     font-weight: bold
+    .isMobile &
+      font-size: 1rem
 
   &__thanks-text
     font-size: 1.4rem
     font-weight: bold
+    .isMobile &
+      font-size: 1rem
 
   &__thanks-caution-text
     font-size: .8rem
@@ -282,35 +289,49 @@ export default {
     position: fixed
     left: 50%
     bottom: 50%
+    .isMobile &
+      left: auto
+      width: calc(100% - 4rem)
+      text-align: center
 
   &__item
     display: block
     width: 640px
-    margin-top: 16px
     margin-top: 36px
     &.is-sending
       opacity: .3
+    .isMobile &
+      width: 100%
+      margin-top: 1rem
 
   &__label
     font-size: 20px
     font-weight: bold
     color: $text-black
+    .isMobile &
+      font-size: 1.2rem
 
   &__label.is-required
     &:after
       content: "（必須）"
       color: $theme-color-contact
       font-size: 16px
+      .isMobile &
+        font-size: 1rem
 
   &__input-block
     margin-top: 8px
 
     &.is-radio
       padding-left: 24px
+      .isMobile &
+        padding: 0
 
   &__submit-btn
     font-weight: bold
     font-size: 20px
+    .isMobile &
+      font-size: 1.2rem
 
   button.v-btn[disabled]
     background-color: #000

@@ -20,6 +20,7 @@ export default {
       ],
     }
   },
+
   methods: {
     convertstrclassname(str){
       return 'is-' + str.split(' ').map(s => s.toLowerCase()).join('-')
@@ -73,6 +74,10 @@ li.is-contact
   color: $text-black
   text-decoration: none
   transition: color .3s
+  .isMobile &
+    text-align: center
+    border-bottom: 1px solid $main-border-color
+    background-color: #fff
 
   &:hover
     color: #fff

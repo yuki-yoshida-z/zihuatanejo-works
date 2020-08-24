@@ -15,7 +15,10 @@
         ></v-text-field>
       </div>
       <div v-show="!editMode" class="text-field-unit__display-block is-text">
-        <p :class="['text-field-unit__text', 'is-text', addClassForNw ]"><v-icon dense @click="toEditMode">mdi-pencil</v-icon>{{ inputValue }}</p>
+        <div :class="['text-field-unit__text-block', addClassForNw]">
+          <v-icon dense @click="toEditMode">mdi-pencil</v-icon>
+          <p class="text-field-unit__text is-text">{{ inputValue }}</p>
+        </div>
       </div>
     </template>
     <template v-else>
@@ -122,6 +125,8 @@ export default {
 
   &__input-block
     padding-left: 24px
+    .isMobile &
+      padding-left: 1rem
 
   &__display-block
     position: relative
@@ -131,16 +136,25 @@ export default {
       height: 86px
     &.is-textarea
       word-break: break-all
+    .isMobile &
+      width: 295px
+      padding-left: 1.75rem
+
+  &__text-block
+    position: relative
+
+    .v-icon
+      position: absolute
+      top: 18px
+      left: -24px
 
   &__text
     position: relative
     &.is-text
       line-height: 56px
-
-      .v-icon
-        position: absolute
-        top: 18px
-        left: -24px
+      word-break: keep-all
+      white-space: nowrap
+      overflow: scroll
 
     &.is-textarea
       min-height: 160px

@@ -8,6 +8,7 @@ import 'firebase/analytics'
 import vuetify from './plugins/vuetify'
 import 'ress'
 import 'animate.css'
+import VueMq from './plugins/vue-mq'
 
 Vue.config.productionTip = false
 
@@ -27,5 +28,6 @@ firebase.analytics();
 new Vue({
   router,
   vuetify,
+  VueMq,
   render: h => h(App)
 }).$mount('#app')

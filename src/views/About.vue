@@ -55,13 +55,22 @@ export default {
   flex-wrap: wrap
   margin-top: 24px
   padding: 0 7%
+  .isMobile &
+    padding: 0 1rem
+    margin-bottom: 7%
 
 .about-body
+  .isMobile &
+    padding: 1rem
+    background-color: rgba(255, 255, 255, 0.3)
+
   &__text
     color: $text-black
     font-size: 2.4vh
     line-height: 2
     animation-duration: 1.5s
+    .isMobile &
+      font-size: 1rem
 
     &.is-second
       animation-delay: 0.5s
@@ -80,6 +89,8 @@ export default {
 
     &.is-caution
       font-size: 1.8vh
+      .isMobile &
+        font-size: .8rem
 
   &__link
     +text-link($color: $theme-color-about, $hover-color: $theme-color-about)

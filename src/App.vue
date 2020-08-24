@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-app style="height: 0; margin: 0; padding: 0;">
-      <div :class="sceneClass">
+      <div :class="[sceneClass, { isMobile: isMobile }]">
         <main-header/>
         <div class="main-content" :class="bgStyle">
           <page-curtain/>
@@ -18,16 +18,23 @@ import PageCurtain from '@/components/atoms/PageCurtain.vue'
 
 export default {
   name: 'App',
+
   components: {
     MainHeader,
     PageCurtain
   },
+
   computed: {
     sceneClass(){
       return this.$route.name === 'top' ? 'scene-top' : 'scene-' + this.$route.name
     },
+
     bgStyle(){
       return this.$route.name === 'top' ? 'is-hourGlass' : 'is-' + this.$route.name + 'HalfHourGlass'
+    },
+
+    isMobile(){
+      return this.$mq === 'sp' || this.$mq === 'tableBreakPoint'
     }
   }
 }
@@ -44,5 +51,8 @@ export default {
   padding-left: 200px
   overflow: hidden
   background-color: #fff
+
+  .isMobile &
+    padding: 3rem 0 0
 
 </style>
