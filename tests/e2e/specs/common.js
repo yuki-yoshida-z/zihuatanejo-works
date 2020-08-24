@@ -64,5 +64,21 @@ module.exports = {
       .assert.containsText('.nw-pageHeadingJa', 'ページが見つかりません')
 
       .end()
+  },
+
+  'ヘッダー': browser => {
+    browser
+      .url('http://localhost:8080')
+      .assert.visible('.nw-mainHeader')
+      .assert.not.elementPresent('.nw-mainHeaderToggleBtn')
+      .assert.visible('.nw-mainHeaderMenu')
+      .windowSize('current', 375, 667)
+      .assert.elementPresent('.nw-mainHeaderToggleBtn')
+      .assert.visible('.nw-mainHeaderToggleBtn')
+      .assert.not.visible('.nw-mainHeaderMenu')
+      .click('.nw-mainHeaderToggleBtn')
+      .assert.visible('.nw-mainHeaderMenu')
+      .click('.nw-mainHeaderMenu')
+      .assert.not.visible('.nw-mainHeaderMenu')
   }
 }

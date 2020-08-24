@@ -1,19 +1,20 @@
 <template>
   <div>
-    <div class="main-header__content">
+    <div class="main-header__content nw-mainHeader">
       <div class="main-header__header">
         <header-logo-img/>
         <v-btn
+          v-if="$mq === 'sp' || $mq === 'tableBreakPoint'"
           icon
           absolute
           color="#333"
-          class="main-header__btn"
+          class="main-header__btn nw-mainHeaderToggleBtn"
           @click="onToggleNav"
         >
           <v-icon>mdi-menu</v-icon>
         </v-btn>
       </div>
-      <div :class="['main-header__body', { isSlideOpen: slideNavOpen }]" @click="onToggleNav">
+      <div :class="['main-header__body', { isSlideOpen: slideNavOpen }, 'nw-mainHeaderMenu']" @click="onToggleNav">
         <global-nav/>
       </div>
     </div>
