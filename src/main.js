@@ -13,14 +13,14 @@ import VueMq from './plugins/vue-mq'
 Vue.config.productionTip = false
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCSYRmbKnUd-4HGbD0gqYfLir5uJoFmNGI",
-  authDomain: "zihuatanejo-works.firebaseapp.com",
-  databaseURL: "https://zihuatanejo-works.firebaseio.com",
-  projectId: "zihuatanejo-works",
-  storageBucket: "zihuatanejo-works.appspot.com",
-  messagingSenderId: "686832512305",
-  appId: "1:686832512305:web:5dace4c6195b2fcd7dd410",
-  measurementId: "G-WVEM8DE0N8"
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGEING_SENDER_ID,
+  appId: process.env.VUE_APP_FIREBASE_APP_ID,
+  measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENT_ID
 };
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
