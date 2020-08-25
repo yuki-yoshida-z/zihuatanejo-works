@@ -1,15 +1,5 @@
-# zihuatanejo-works
-## サイト概要
-個人のポートフォリオサイト。
-## 仕様・技術
-### サーバー
-Firebaseでサーバレスとする
-### フロントエンド
-Vue.jsを使用
-### API関連
-GASのAPIを使用
-## 開発環境構築
-### 前提
-- Homebrewインストール済
-- yarnインストール済
-- 本リポジトリのclone済
+# Zihuatanejo Works
+### サイト概要
+個人のポートフォリオサイトになります。
+
+![アーキテクチャ](https://firebasestorage.googleapis.com/v0/b/zihuatanejo-works.appspot.com/o/draft.png?alt=media&token=517feade-a190-480c-9cef-ba9b91a7125a)
