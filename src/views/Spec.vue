@@ -1,5 +1,6 @@
 <template>
   <div class="spec">
+    <page-background page-name="is-spec" />
     <page-heading heading-en="SPEC" heading-ja="仕様" />
     <div class="spec-content">
       <div class="spec-header">
@@ -54,6 +55,7 @@
 
 <script>
 import firebase from 'firebase/app'
+import PageBackground from '@/components/atoms/PageBackground.vue'
 import PageHeading from '@/components/atoms/PageHeading.vue'
 import RadarChart from '@/components/atoms/RadarChart.vue'
 
@@ -61,6 +63,7 @@ export default {
   name: 'spec',
 
   components: {
+    PageBackground,
     PageHeading,
     RadarChart
   },
@@ -161,12 +164,10 @@ export default {
 <style lang="sass" scoped>
 
 .spec
-  background-image: url("../assets/specBg.svg")
-  background-position: right
-  background-size: contain
-  background-attachment: fixed
-  overflow: hidden
   min-height: 100vh
+
+.spec-content
+  position: relative
 
 .spec-header
   width: 93%

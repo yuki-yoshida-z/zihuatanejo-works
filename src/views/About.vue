@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <page-background page-name="is-about" />
     <page-heading heading-en="ABOUT" heading-ja="このサイトについて" />
     <div class="about-content">
       <div class="about-body">
@@ -21,11 +22,13 @@
 </template>
 
 <script>
+import PageBackground from '@/components/atoms/PageBackground.vue'
 import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
   name: 'about',
   components: {
+    PageBackground,
     PageHeading
   },
 
@@ -44,14 +47,10 @@ export default {
 <style lang="sass" scoped>
 
 .about
-  background-image: url("../assets/aboutBg.svg")
-  background-position: right
-  background-size: contain
-  background-attachment: fixed
-  overflow: hidden
   min-height: 100vh
 
 .about-content
+  position: relative
   display: flex
   flex-wrap: wrap
   margin-top: 24px

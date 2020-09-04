@@ -1,5 +1,6 @@
 <template>
   <div class="products">
+    <page-background page-name="is-products" />
     <page-heading heading-en="FAVORITE PRODUCTS" heading-ja="お気に入りプロダクト" />
     <div class="products-content">
       <transition-group
@@ -41,12 +42,14 @@
 
 <script>
 import firebase from 'firebase/app'
+import PageBackground from '@/components/atoms/PageBackground.vue'
 import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
   name: 'products',
 
   components: {
+    PageBackground,
     PageHeading
   },
 
@@ -73,14 +76,10 @@ export default {
 <style lang="sass" scoped>
 
 .products
-  background-image: url("../assets/productsBg.svg")
-  background-position: right
-  background-size: contain
-  background-attachment: fixed
-  overflow: hidden
   min-height: 100vh
 
 .products-content
+  position: relative
   margin-top: 24px
   padding: 0 0 0 7%
   .isMobile &

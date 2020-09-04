@@ -1,5 +1,6 @@
 <template>
   <div class="contact">
+    <page-background page-name="is-contact" />
     <page-heading heading-en="CONTACT" heading-ja="お問い合わせ" />
     <div class="contact-content">
       <div class="contact-body">
@@ -103,6 +104,7 @@
 
 <script>
 import firebase from 'firebase/app'
+import PageBackground from '@/components/atoms/PageBackground.vue'
 import PageHeading from '@/components/atoms/PageHeading.vue'
 import TextFieldUnit from '@/components/atoms/TextFieldUnit.vue'
 
@@ -110,6 +112,7 @@ export default {
   name: 'contact',
 
   components: {
+    PageBackground,
     PageHeading,
     TextFieldUnit
   },
@@ -251,11 +254,6 @@ export default {
 <style lang="sass" scoped>
 
 .contact
-  background-image: url("../assets/contactBg.svg")
-  background-position: right
-  background-size: contain
-  background-attachment: fixed
-  overflow: hidden
   min-height: 100vh
 
 .contact-content

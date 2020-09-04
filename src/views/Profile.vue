@@ -1,5 +1,6 @@
 <template>
   <div class="profile">
+    <page-background page-name="is-profile" />
     <page-heading heading-en="PROFILE" heading-ja="プロフィール" />
     <div class="profile-content">
       <transition name="fade-block" enter-active-class="animate__animated animate__fadeInLeft faster">
@@ -56,12 +57,14 @@
 
 <script>
 import firebase from 'firebase/app'
+import PageBackground from '@/components/atoms/PageBackground.vue'
 import PageHeading from '@/components/atoms/PageHeading.vue'
 
 export default {
   name: 'profile',
 
   components: {
+    PageBackground,
     PageHeading
   },
 
@@ -126,14 +129,10 @@ export default {
 <style lang="sass" scoped>
 
 .profile
-  background-image: url("../assets/profileBg.svg")
-  background-position: right
-  background-size: contain
-  background-attachment: fixed
   min-height: 100vh
-  overflow: hidden
 
 .profile-content
+  position: relative
   display: flex
   flex-wrap: wrap
   margin-top: 24px

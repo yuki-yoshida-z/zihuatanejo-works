@@ -16,6 +16,7 @@ export default {
 
 <style lang="sass" scoped>
 .page-heading
+  position: relative
   display: block
   padding: 100px 7% 48px
   .isMobile &
