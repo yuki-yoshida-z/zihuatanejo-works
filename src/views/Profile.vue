@@ -129,8 +129,9 @@ export default {
   background-image: url("../assets/profileBg.svg")
   background-position: right
   background-size: contain
-  overflow-y: scroll
-  height: 100vh
+  background-attachment: fixed
+  min-height: 100vh
+  overflow: hidden
 
 .profile-content
   display: flex

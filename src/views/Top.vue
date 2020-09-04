@@ -118,7 +118,7 @@ export default {
   background-size: contain
   .isMobile &
     background-position: top
-    height: calc(100vh - 3rem)
+    height: calc(100vh - 6rem)
     padding: 0
     background-size: cover
 

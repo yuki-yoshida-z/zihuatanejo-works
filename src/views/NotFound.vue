@@ -25,6 +25,7 @@ export default {
   background-image: url("../assets/contactBg.svg")
   background-position: right
   background-size: contain
+  min-height: 100vh
 
 .notfound-content
   display: flex

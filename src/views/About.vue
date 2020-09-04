@@ -47,8 +47,9 @@ export default {
   background-image: url("../assets/aboutBg.svg")
   background-position: right
   background-size: contain
-  overflow-y: scroll
-  height: 100vh
+  background-attachment: fixed
+  overflow: hidden
+  min-height: 100vh
 
 .about-content
   display: flex

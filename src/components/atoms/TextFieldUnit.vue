@@ -51,8 +51,6 @@ import { required, maxLength, email } from 'vuelidate/lib/validators'
 export default {
   mixins: [validationMixin],
 
-  name: 'textFieldUnit',
-
   props: {
     elementType: String,
     displayName: String,

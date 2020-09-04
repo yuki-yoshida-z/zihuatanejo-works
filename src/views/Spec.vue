@@ -164,8 +164,9 @@ export default {
   background-image: url("../assets/specBg.svg")
   background-position: right
   background-size: contain
-  overflow-y: scroll
-  height: 100vh
+  background-attachment: fixed
+  overflow: hidden
+  min-height: 100vh
 
 .spec-header
   width: 93%

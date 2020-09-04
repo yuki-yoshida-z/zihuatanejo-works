@@ -7,7 +7,6 @@
 
 <script>
 export default {
-  name: 'pageHeading',
   props: {
     headingEn: String,
     headingJa: String

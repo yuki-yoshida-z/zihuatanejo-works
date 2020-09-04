@@ -4,7 +4,7 @@
       <div class="main-header__header">
         <header-logo-img/>
         <v-btn
-          v-if="$mq === 'sp' || $mq === 'tableBreakPoint'"
+          v-if="isMobile"
           icon
           absolute
           color="#333"
@@ -17,6 +17,10 @@
       <div :class="['main-header__body', { isSlideOpen: slideNavOpen }, 'nw-mainHeaderMenu']" @click="onToggleNav">
         <global-nav/>
       </div>
+      <div class="main-header__footer" v-if="!isMobile">
+        <social-btns />
+        <copy-right-msg />
+      </div>
     </div>
   </div>
 </template>
@@ -24,11 +28,16 @@
 <script>
 import HeaderLogoImg from '@/components/atoms/HeaderLogoImg.vue'
 import GlobalNav from '@/components/GlobalNav.vue'
+import SocialBtns from '@/components/atoms/SocialBtns.vue'
+import CopyRightMsg from '@/components/atoms/CopyRightMsg.vue'
+
 
 export default {
   components: {
     HeaderLogoImg,
-    GlobalNav
+    GlobalNav,
+    SocialBtns,
+    CopyRightMsg
   },
 
   data(){
@@ -37,9 +46,14 @@ export default {
     }
   },
 
+  computed: {
+    isMobile(){
+      return this.$mq === 'sp' || this.$mq === 'tableBreakPoint'
+    }
+  },
+
   methods: {
     onToggleNav(){
-      console.log("toggle")
       this.slideNavOpen = this.slideNavOpen ? false : true
     }
   }
@@ -86,5 +100,11 @@ export default {
 .main-header__btn
   top:  .4rem
   right: .4rem
+
+.main-header__footer
+  position: absolute
+  bottom: 0
+  display: block
+  padding-left: 24px
 
 </style>

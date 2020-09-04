@@ -76,8 +76,9 @@ export default {
   background-image: url("../assets/productsBg.svg")
   background-position: right
   background-size: contain
-  overflow-y: scroll
-  height: 100vh
+  background-attachment: fixed
+  overflow: hidden
+  min-height: 100vh
 
 .products-content
   margin-top: 24px

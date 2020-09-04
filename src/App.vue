@@ -7,6 +7,7 @@
           <page-curtain/>
           <router-view/>
         </div>
+        <mobile-footer v-if="isMobile" />
       </div>
     </v-app>
   </div>
@@ -15,13 +16,15 @@
 <script>
 import MainHeader from '@/components/MainHeader.vue'
 import PageCurtain from '@/components/atoms/PageCurtain.vue'
+import MobileFooter from '@/components/MobileFooter.vue'
 
 export default {
   name: 'App',
 
   components: {
     MainHeader,
-    PageCurtain
+    PageCurtain,
+    MobileFooter
   },
 
   computed: {
@@ -53,6 +56,6 @@ export default {
   background-color: #fff
 
   .isMobile &
-    padding: 3rem 0 0
+    padding: 3rem 0
 
 </style>
