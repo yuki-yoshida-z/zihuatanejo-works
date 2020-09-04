@@ -3,7 +3,7 @@
     <page-heading heading-en="SPEC" heading-ja="仕様" />
     <div class="spec-content">
       <div class="spec-header">
-        <h2 class="spec-header__title nw-specHeaderTitle">自己評価チャート</h2>
+        <h2 class="spec-header__title nw-specHeaderTitle">スキルセット</h2>
         <div class="spec-header__chart-block">
           <div class="spec-header__chart nw-specProgrammingChart">
             <radar-chart
