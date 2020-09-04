@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <v-app style="height: 0; margin: 0; padding: 0;">
+      <img-preloader/>
       <div :class="[sceneClass, { isMobile: isMobile }]">
         <main-header/>
         <div class="main-content" :class="bgStyle">
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import ImgPreloader from '@/components/atoms/ImgPreloader.vue'
 import MainHeader from '@/components/MainHeader.vue'
 import PageCurtain from '@/components/atoms/PageCurtain.vue'
 import MobileFooter from '@/components/MobileFooter.vue'
@@ -22,6 +24,7 @@ export default {
   name: 'App',
 
   components: {
+    ImgPreloader,
     MainHeader,
     PageCurtain,
     MobileFooter

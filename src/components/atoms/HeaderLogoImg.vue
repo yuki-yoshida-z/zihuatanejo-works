@@ -1,5 +1,6 @@
 <template>
-  <img src="@/assets/logo.svg">
+  <p>img</p>
+  <!-- <img src="@/assets/long.png"> -->
 </template>
 
 <style lang="sass" scoped>
