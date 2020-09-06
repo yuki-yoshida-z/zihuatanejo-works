@@ -29,7 +29,7 @@ export default {
     display: flex
     align-items: center
     padding-left: 8px
-    width: 240px
+    width: 192px
 
   &__link
     display: block
