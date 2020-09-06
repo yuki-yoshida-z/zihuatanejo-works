@@ -14,7 +14,6 @@
           v-for="(product, index) in products"
           :key="product.order"
           :data-index="index"
-          :hover=true
           :href="product.url"
           class="products__list-item nw-productsListItem"
           target="blank"

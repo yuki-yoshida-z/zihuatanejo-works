@@ -1,5 +1,7 @@
 <template>
   <div style="display: none;">
+    <img :src="require('@/assets/logo.png')">
+    <img :src="require('@/assets/logo_sp.png')">
     <img :src="require('@/assets/profile.jpg')">
     <img :src="require('@/assets/hourGlass.svg')">
     <img :src="require('@/assets/aboutBg.svg')">

@@ -2,7 +2,7 @@
   <div>
     <div class="main-header__content nw-mainHeader">
       <div class="main-header__header">
-        <header-logo-img/>
+        <header-logo/>
         <v-btn
           v-if="isMobile"
           icon
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import HeaderLogoImg from '@/components/atoms/HeaderLogoImg.vue'
+import HeaderLogo from '@/components/atoms/HeaderLogo.vue'
 import GlobalNav from '@/components/GlobalNav.vue'
 import SocialBtns from '@/components/atoms/SocialBtns.vue'
 import CopyRightMsg from '@/components/atoms/CopyRightMsg.vue'
@@ -34,7 +34,7 @@ import CopyRightMsg from '@/components/atoms/CopyRightMsg.vue'
 
 export default {
   components: {
-    HeaderLogoImg,
+    HeaderLogo,
     GlobalNav,
     SocialBtns,
     CopyRightMsg
