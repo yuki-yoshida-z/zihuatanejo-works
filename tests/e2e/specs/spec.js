@@ -3,7 +3,7 @@ module.exports = {
     browser
       .url('http://localhost:8080/spec')
       .assert.visible('.nw-specHeaderTitle')
-      .assert.containsText(".nw-specHeaderTitle", "自己評価チャート")
+      .assert.containsText(".nw-specHeaderTitle", "スキルセット")
       .assert.visible('.nw-specProgrammingChart')
       .assert.visible('.nw-specDirectionChart')
       .assert.visible('.nw-specBodyTitle')

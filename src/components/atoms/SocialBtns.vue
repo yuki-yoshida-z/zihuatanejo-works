@@ -1,5 +1,5 @@
 <template>
-  <ul class="social-btns">
+  <ul class="social-btns nw-socialBtns">
     <li class="social-btns__list" v-for="item in socialItems" :key="item.name">
       <a :href="item.path" :class="['social-btns__link', 'is-' + item.name]" target="_blank">
         <v-icon :size="iconSize" class="social-btns__icon">{{ 'mdi-' + item.name}}</v-icon>

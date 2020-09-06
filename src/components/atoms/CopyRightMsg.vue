@@ -1,6 +1,6 @@
 <template>
   <div class="copy-right-msg">
-    <p class="copy-right-msg__text">&copy;2020&nbsp;Zihuatanejo</p>
+    <p class="copy-right-msg__text nw-copyRightMsg">&copy;2020&nbsp;Zihuatanejo</p>
   </div>
 </template>
 

@@ -80,5 +80,15 @@ module.exports = {
       .assert.visible('.nw-mainHeaderMenu')
       .click('.nw-mainHeaderMenu')
       .assert.not.visible('.nw-mainHeaderMenu')
+  },
+
+  'フッター': browser => {
+    browser
+      .url('http://localhost:8080')
+      .assert.visible('.nw-socialBtns')
+      .assert.visible('.nw-copyRightMsg')
+      .windowSize('current', 375, 667)
+      .assert.visible('.nw-socialBtns')
+      .assert.visible('.nw-copyRightMsg')
   }
 }
