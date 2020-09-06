@@ -9,31 +9,37 @@
         enter-active-class="animate__animated animate__fadeInUp"
         @before-enter="transitionBeforeEnter"
       >
-        <v-card
-          tag="li"
+        <v-hover
+          v-slot="{ hover }"
           v-for="(product, index) in products"
           :key="product.order"
-          :data-index="index"
-          :href="product.url"
-          class="products__list-item nw-productsListItem"
-          target="blank"
-          max-width="320px"
         >
-          <v-img
-            :alt="product.name"
-            :src="product.image_path"
-            class="white--text align-end products__list-img"
-            height="168px"
-            width="320px"
+          <v-card
+            tag="li"
+            :data-index="index"
+            :href="product.url"
+            class="products__list-item nw-productsListItem"
+            target="blank"
+            :elevation="hover ? 20 : 2"
             max-width="320px"
-            contain
-          />
-          <v-card-title class="products__list-title nw-productsListTitle">{{ product.name }}</v-card-title>
-          <v-card-subtitle class="pb-0 nw-productsListCompany">{{ product.company }}</v-card-subtitle>
-          <v-card-text class="text--primary nw-productsListText">
-            <div>{{ product.description }}</div>
-          </v-card-text>
-        </v-card>
+            hover
+          >
+            <v-img
+              :alt="product.name"
+              :src="product.image_path"
+              class="white--text align-end products__list-img"
+              height="168px"
+              width="320px"
+              max-width="320px"
+              contain
+            />
+            <v-card-title class="products__list-title nw-productsListTitle">{{ product.name }}</v-card-title>
+            <v-card-subtitle class="pb-0 nw-productsListCompany">{{ product.company }}</v-card-subtitle>
+            <v-card-text class="text--primary nw-productsListText">
+              <div>{{ product.description }}</div>
+            </v-card-text>
+          </v-card>
+        </v-hover>
       </transition-group>
     </div>
   </div>
