@@ -75,7 +75,7 @@ export default {
     border-right: none
 
 .main-header__header
-  padding: 24px
+  padding: 24px 20px
   .isMobile &
     position: relative
     z-index: 4

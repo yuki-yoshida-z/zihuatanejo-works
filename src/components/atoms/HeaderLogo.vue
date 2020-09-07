@@ -1,7 +1,7 @@
 <template>
   <div class="header-logo">
     <router-link to="/" class="header-logo__link">
-      <img :src="imgSrc" class="header-logo__img">
+      <img :src="imgSrc" class="header-logo__img" alt="Zihuatanejo Works">
     </router-link>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
 
 .header-logo
   display: block
-  width: 120px
+  width: 128px
   .isMobile &
     display: flex
     align-items: center

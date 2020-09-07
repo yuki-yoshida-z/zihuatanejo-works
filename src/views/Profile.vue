@@ -10,6 +10,7 @@
             height="200"
             width="200"
             class="nw-profileHeaderImg"
+            alt="プロフィール画像"
           ></v-img>
         </div>
       </transition>
