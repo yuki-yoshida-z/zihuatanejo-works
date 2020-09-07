@@ -243,9 +243,6 @@ export default {
         }
       }
       firebase.firestore().collection('contact_mails').add(sendDate)
-        .then(() => {
-          console.log("メールの送信が完了しました")
-        })
     }
   }
 }

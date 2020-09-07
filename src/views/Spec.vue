@@ -130,7 +130,6 @@ export default {
   },
 
   mounted(){
-    console.log(this.$mq)
     if(this.$mq === 'tableBreakPoint'){
       this.itemsPerPage = 5
     }

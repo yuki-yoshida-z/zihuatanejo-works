@@ -93,7 +93,7 @@ export default {
         })
       })
       .catch(error => {
-        console.log(error)
+        alert('エラーが発生しました。ページをリロードして再度お試しください。')
       })
   },
 
