@@ -92,7 +92,7 @@ export default {
           this.blockAnimationStart = true
         })
       })
-      .catch(error => {
+      .catch(() => {
         alert('エラーが発生しました。ページをリロードして再度お試しください。')
       })
   },
