@@ -18,6 +18,7 @@
             tag="li"
             :data-index="index"
             :href="product.url"
+            :disabled="isProductClosed(product)"
             class="products__list-item nw-productsListItem"
             target="blank"
             :elevation="hover ? 20 : 2"
@@ -68,6 +69,20 @@ export default {
     firebase.firestore().collection('products').orderBy('order').get().then(snapshot => {
       this.products = snapshot.docs.map(doc => doc.data())
     })
+  },
+
+  computed: {
+    isProductClosed(){
+      return (product) => {
+        let isClosed = false
+        if(product.service_close_at){
+          const today = new Date()
+          const closedAt = product.service_close_at.toDate()
+          isClosed = today > closedAt
+        }
+        return isClosed
+      }
+    }
   },
 
   methods: {
