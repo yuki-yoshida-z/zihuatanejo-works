@@ -5,6 +5,7 @@ import About from '../views/About.vue'
 import Profile from '../views/Profile.vue'
 import Spec from '../views/Spec.vue'
 import Products from '../views/Products.vue'
+import Company from '../views/Company.vue'
 import Contact from '../views/Contact.vue'
 import NotFound from '../views/NotFound.vue'
 
@@ -35,6 +36,11 @@ const routes = [
     path: '/products',
     name: 'products',
     component: Products
+  },
+  {
+    path: '/company',
+    name: 'company',
+    component: Company
   },
   {
     path: '/contact',

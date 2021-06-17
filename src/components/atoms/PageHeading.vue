@@ -48,6 +48,9 @@ export default {
     .scene-products &
       color: $theme-color-products
 
+    .scene-company &
+      color: $theme-color-profile
+
     .scene-contact &
       color: $theme-color-contact
 

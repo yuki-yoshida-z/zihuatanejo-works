@@ -71,6 +71,9 @@ export default {
   &.is-products
     background-color: $theme-color-products
 
+  &.is-company
+    background-color: $theme-color-profile
+
   &.is-contact
     background-color: $theme-color-contact
 

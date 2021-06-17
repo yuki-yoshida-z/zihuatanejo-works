@@ -16,7 +16,8 @@ export default {
         { id: 3, name: 'Profile', href: 'profile' },
         { id: 4, name: 'Spec', href: 'spec' },
         { id: 5, name: 'Favorite Products', href: 'products' },
-        { id: 6, name: 'Contact', href: 'contact' }
+        { id: 6, name: 'Company', href: 'company' },
+        { id: 7, name: 'Contact', href: 'contact' }
       ],
     }
   },
@@ -60,6 +61,10 @@ li.is-spec
 li.is-favorite-products
   a:hover:before
     background-color: $theme-color-products
+
+li.is-company
+  a:hover:before
+    background-color: $theme-color-company
 
 li.is-contact
   a:hover:before

@@ -33,6 +33,9 @@ export default {
   &.is-products
     background-image: url("../../assets/productsBg.svg")
 
+  &.is-company
+    background-image: url("../../assets/profileBg.svg")
+
   &.is-contact
     background-image: url("../../assets/contactBg.svg")
 
