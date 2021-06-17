@@ -4,16 +4,16 @@
     <page-heading heading-en="COMPANY" heading-ja="企業概要" />
     <div class="company-content">
       <div class="company-body">
-        <ul class="company-body__list">
-          <li class="company-body__list-item">
+        <ul class="company-body__list nw-companyInfoList">
+          <li class="company-body__list-item mw-companyInfoName">
             <span class="company-body__list-title">社名</span>
             <span class="company-body__list-text">株式会社ジワタネホ</span>
           </li>
-          <li class="company-body__list-item">
+          <li class="company-body__list-item mw-companyInfoStart">
             <span class="company-body__list-title">創業</span>
             <span class="company-body__list-text">2021年6月1日</span>
           </li>
-          <li class="company-body__list-item">
+          <li class="company-body__list-item mw-companyInfoUrl">
             <span class="company-body__list-title">URL</span>
             <span class="company-body__list-text">
               <router-link to="/" class="company-body__list-link">
@@ -21,7 +21,7 @@
               </router-link>
             </span>
           </li>
-          <li class="company-body__list-item">
+          <li class="company-body__list-item mw-companyInfoPresident">
             <span class="company-body__list-title">代表者</span>
             <span class="company-body__list-text">代表取締役 吉田優輝</span>
           </li>

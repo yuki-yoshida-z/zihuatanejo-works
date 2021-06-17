@@ -2,7 +2,7 @@ module.exports = {
   'クリックで各ページへ遷移できること': browser => {
     browser.init()
     browser.expect.element('.nw-globalNav').to.be.present
-    browser.expect.elements('.nw-globalNavLink').count.to.equal(6)
+    browser.expect.elements('.nw-globalNavLink').count.to.equal(7)
     browser
       .click({selector: '.nw-globalNavLink', index: 1})
       .assert.urlEquals('http://localhost:8080/about')
@@ -25,6 +25,11 @@ module.exports = {
       .assert.containsText('.nw-pageHeadingJa', 'お気に入りプロダクト')
 
       .click({selector: '.nw-globalNavLink', index: 5})
+      .assert.urlEquals('http://localhost:8080/company')
+      .assert.containsText('.nw-pageHeadingEn', 'COMPANY')
+      .assert.containsText('.nw-pageHeadingJa', '企業概要')
+
+      .click({selector: '.nw-globalNavLink', index: 6})
       .assert.urlEquals('http://localhost:8080/contact')
       .assert.containsText('.nw-pageHeadingEn', 'CONTACT')
       .assert.containsText('.nw-pageHeadingJa', 'お問い合わせ')
@@ -49,6 +54,10 @@ module.exports = {
       .url('http://localhost:8080/products')
       .assert.containsText('.nw-pageHeadingEn', 'FAVORITE PRODUCTS')
       .assert.containsText('.nw-pageHeadingJa', 'お気に入りプロダクト')
+
+      .url('http://localhost:8080/company')
+      .assert.containsText('.nw-pageHeadingEn', 'COMPANY')
+      .assert.containsText('.nw-pageHeadingJa', '企業概要')
 
       .url('http://localhost:8080/contact')
       .assert.containsText('.nw-pageHeadingEn', 'CONTACT')
